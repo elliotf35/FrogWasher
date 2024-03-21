@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Kill
   - PlatformCollider
+  - Portal1
+  - Portal2
   layers:
   - Default
   - TransparentFX
