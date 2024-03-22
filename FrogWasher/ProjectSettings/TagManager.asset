@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Kill
   - PlatformCollider
+  - WaterRenderer
   layers:
   - Default
   - TransparentFX
