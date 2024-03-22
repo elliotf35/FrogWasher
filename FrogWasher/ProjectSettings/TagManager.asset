@@ -8,6 +8,7 @@ TagManager:
   - PlatformCollider
   - Portal1
   - Portal2
+  - WaterRenderer
   layers:
   - Default
   - TransparentFX
