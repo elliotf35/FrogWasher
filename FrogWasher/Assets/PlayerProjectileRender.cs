@@ -7,94 +7,94 @@ using UnityEngine;
 
 public class PlayerProjectileRender : MonoBehaviour
 {
-    public Transform target;
-    public float distance;
-   
-    private LineRenderer lr;
-    private float xOffset = .12f;
-    private readonly float yOffset = .03f;
-    private readonly float width = .03f;
-    private bool isIncreasing = false;
+    private readonly float width = .02f;
     private bool left = false;
     // Start is called before the first frame update
+    private float maxDistance = 0.5f; // Maximum distance the line should be drawn
+
+    private LineRenderer lineRenderer;
+    private Vector3 mousePosition;
+
+    public int water = 1000;
+    public int refillTimeout = 0;
+
     void Start()
     {
-        lr = GetComponent<LineRenderer>();
-        lr.startWidth = width;
-        lr.endWidth = width;
-        isIncreasing = false;
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2; // Two points: start and end
+        lineRenderer.startWidth = width;
+        lineRenderer.endWidth = width;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float md = .5f;
-        xOffset = 0.12f;
-        // if (target.rotation.y == 1){
-        //     if (!left) {
-        //         left = true;
-        //         StopAllCoroutines();
-        //     }
-        //     xOffset = -0.12f;
-        //     md = -0.5f;
+        left = transform.parent.rotation.y != 0;
+        if (Input.GetButton("Fire1") && water > 0) {
+            // Debug.Log("Firing");
+            // Get the mouse position in world coordinates
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0f; // Make sure the z-coordinate is zero
+
+            // Calculate the direction from the object to the mouse
+            Vector3 direction = mousePosition - transform.position;
             
-        // } else {
-        //     left = false;
-        // }
-        Vector2 startPos = new(target.position.x + xOffset, target.position.y + yOffset);
-        Vector2 newPos = new(target.position.x + xOffset + distance, target.position.y + yOffset);
-        lr.SetPosition(0, startPos);
-        lr.SetPosition(1, newPos);
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (!isIncreasing)
-            {
-                StopAllCoroutines();
-                StartCoroutine(FireWeapon(md, left));
-                isIncreasing = true;
+
+            // Clamp the magnitude of the direction to the maximum distance
+            direction = direction.normalized * maxDistance;
+            
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Debug.Log(angle);
+            if (left) {
+                if (angle > -90 && angle < 0) {
+                direction.x = 0;
+                direction.y = -maxDistance;
+                }
+                if (angle < 90 && angle >= 0) {
+                    direction.x = 0;
+                    direction.y = maxDistance;
+                }
+            } else {
+                if (angle < -90) {
+                direction.x = 0;
+                direction.y = -maxDistance;
+                }
+                if (angle > 90) {
+                    direction.x = 0;
+                    direction.y = maxDistance;
+                }
             }
-        }
-        else if (Input.GetButtonUp("Fire1"))
-        {
-            isIncreasing = false;
-        }
-    }
+            
+            
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxDistance);
 
-    private IEnumerator FireWeapon(float maxDistance, bool l)
-    {
-        float duration = .5f;
-        float elapsedTime = 0f;
+            // If a collision is detected, adjust the line's end position
+            if (hit.collider != null)
+            {
+                // Adjust the line's end position to the hit point
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, hit.point);
+            }
+            else
+            {
+
+                // Set the positions of the line renderer
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, transform.position + direction);
+            }
+            water--;
+            refillTimeout = 300;
+            
+        } else {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, transform.position);
+            if (water < 1000 && refillTimeout == 0) {
+                water++;
+            }
+            if (refillTimeout > 0) {
+                refillTimeout--;
+            }
+
+        }
         
-        while (elapsedTime < duration)
-        {
-            distance = Mathf.Lerp(0f, maxDistance, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        distance = maxDistance;
-
-        while (Input.GetButton("Fire1"))
-        {
-            yield return null;
-        }
-
-        while (distance > 0)
-        {
-            // if (left) {
-            //     distance += Time.deltaTime * Math.Abs(maxDistance);
-            // } else {
-            //     distance -= Time.deltaTime * Math.Abs(maxDistance);
-            // }
-            distance -= Time.deltaTime * Math.Abs(maxDistance);
-            yield return null;
-        }
-        // while (elapsedTime > 0){
-        //     distance = Mathf.Lerp(maxDistance, 0f, elapsedTime / duration);
-        //     elapsedTime -= Time.deltaTime;
-        //     yield return null;
-        // }
-
-        distance = 0f;
     }
 }
