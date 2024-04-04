@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; align-self: auto; justify-content: flex-start; align-items: flex-end; -unity-text-align: upper-left;">
+        <ui:Label tabindex="-1" text="The Marble" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="align-self: center; font-size: 30px; -unity-font-style: bold; translate: 1px 0; scale: 0 1;" />
+        <ui:ProgressBar value="22" title="my-progress" style="align-items: center; align-self: center; flex-basis: 0; translate: 0 100px;" />
+        <ui:VisualElement name="List" style="flex-grow: 1; justify-content: center;">
+            <ui:Label tabindex="-1" text="Yeat" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="-unity-text-align: upper-left;" />
+            <ui:Label tabindex="-1" text="Lil Uzi" parse-escape-sequences="true" display-tooltip-when-elided="true" style="scale: 1 1;" />
+            <ui:Label tabindex="-1" text="Playboi Carti" parse-escape-sequences="true" display-tooltip-when-elided="true" style="height: 25px; scale: 1 1;" />
+            <ui:Label tabindex="-1" text="Young Thug" parse-escape-sequences="true" display-tooltip-when-elided="true" style="scale: 1 1;" />
+            <ui:Label tabindex="-1" text="NBA Youngboy" parse-escape-sequences="true" display-tooltip-when-elided="true" style="scale: 1 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Slider picking-mode="Ignore" label="Slider" value="42" high-value="100" style="justify-content: center; align-self: auto;" />
+</ui:UXML>

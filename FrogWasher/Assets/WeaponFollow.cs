@@ -24,7 +24,7 @@ public class WeaponFollow : MonoBehaviour
         //     xOffset *= -1;
         // }
         left = transform.parent.rotation.y != 0;
-        Debug.Log(left);
+        // Debug.Log(left);
         Vector3 mousePosition = Input.mousePosition;
 
         // Convert the mouse position to world coordinates
@@ -41,7 +41,8 @@ public class WeaponFollow : MonoBehaviour
             angle *= -1;
             angle += 180;
         }
-        Debug.Log(angle);
+        // Debug.Log(angle);
+        // angle = 0;
         
         if (left) {
             if (angle > 90 && angle < 180 ) {
