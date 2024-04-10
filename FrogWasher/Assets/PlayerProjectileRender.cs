@@ -15,10 +15,14 @@ public class PlayerProjectileRender : MonoBehaviour
     private LineRenderer lineRenderer;
     private Vector3 mousePosition;
 
-    public int water = 1000;
+    public int maxWater = 1000;
+    public int water;
+
     public int refillTimeout = 0;
     public Vector2 secondPoint;
     public bool firing;
+
+    public WaterBar waterBar;
 
     void Start()
     {
@@ -26,6 +30,8 @@ public class PlayerProjectileRender : MonoBehaviour
         lineRenderer.positionCount = 2; // Two points: start and end
         lineRenderer.startWidth = width;
         lineRenderer.endWidth = width;
+        water = maxWater;
+        waterBar.SetMaxAmmo(water);
     }
 
     void Update()
@@ -102,6 +108,7 @@ public class PlayerProjectileRender : MonoBehaviour
 
         }
         secondPoint = lineRenderer.GetPosition(1);
+        waterBar.SetAmmo(water);
         
     }
 }

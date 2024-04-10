@@ -31,7 +31,7 @@ public class Frog : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         point = ppr.secondPoint;
         firing = ppr.firing;
@@ -71,7 +71,7 @@ public class Frog : MonoBehaviour
         float distance = Vector2.Distance(point, closestPoint);
 
         // Check if the distance is within the threshold
-        return distance <= .1f;
+        return distance <= 0;
     }
     
 }
