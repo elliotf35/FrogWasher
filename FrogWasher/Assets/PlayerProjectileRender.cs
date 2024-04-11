@@ -79,7 +79,7 @@ public class PlayerProjectileRender : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxDistance);
             // Debug.Log(hit.collider);
             // If a collision is detected, adjust the line's end position
-            if (hit.collider != null)
+            if (hit.collider != null && !hit.collider.isTrigger)
             {
                 // Adjust the line's end position to the hit point
                 lineRenderer.SetPosition(0, transform.position);
@@ -93,7 +93,7 @@ public class PlayerProjectileRender : MonoBehaviour
                 lineRenderer.SetPosition(1, transform.position + direction);
             }
             water--;
-            refillTimeout = 300;
+            refillTimeout = 100;
             
         } else {
             firing = false;
