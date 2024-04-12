@@ -63,6 +63,7 @@
     <Compile Include="Assets\WeaponFollow.cs" />
     <Compile Include="Assets\PlayerProjectileRender.cs" />
     <Compile Include="Assets\CameraFollow.cs" />
+    <Compile Include="Assets\KingAnimations.cs" />
     <Compile Include="Assets\Frog.cs" />
     <Compile Include="Assets\WaterBar.cs" />
   </ItemGroup>
