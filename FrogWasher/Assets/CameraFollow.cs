@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public float FollowSpeed = 2.5f;
+    public float FollowSpeed = 2f;
+    public float yOffset = 1f;
+    public float cameraFOV = 100f; 
     public Transform target;
-    public float yPos = -4.27f;
-    // Update is called once per frame
-    void Start()
-    {
-        transform.position = new Vector3(target.position.x,  yPos, -10f);
-    }
+
     void Update()
     {
-        Vector3 newPos = new Vector3(target.position.x, yPos, -10f);
-        transform.position = Vector3.Slerp(transform.position,newPos,FollowSpeed*Time.deltaTime);
+    Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, -10f); // Adjusted from -10f to -15f
+    transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed * Time.deltaTime);
     }
 }

@@ -63,8 +63,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 5
+    height: 5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -106,5 +106,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FollowSpeed: 10
+  yOffset: 1
   target: {fileID: 0}
-  yPos: -4.27

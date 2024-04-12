@@ -19,10 +19,10 @@ public class WeaponFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // xOffset = Math.Abs(xOffset);
-        // if (target.rotation.y == 1) {
-        //     xOffset *= -1;
-        // }
+        xOffset = Math.Abs(xOffset);
+        if (target.rotation.y == 1) {
+            xOffset *= -1;
+        }
         left = transform.parent.rotation.y != 0;
         // Debug.Log(left);
         Vector3 mousePosition = Input.mousePosition;
