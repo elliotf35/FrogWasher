@@ -93,7 +93,7 @@ public class PlayerProjectileRender : MonoBehaviour
 
         ShootProjectile(jetpackDistance); // Use a shorter distance for the jetpack
 
-        water -= 1;
+        water -= 4;
         refillTimeout = 300;
     }
 
