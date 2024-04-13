@@ -1,0 +1,607 @@
+Using pre-set license
+Built from '2022.3/release' branch; Version is '2022.3.18f1 (d29bea25151d) revision 13802474'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'en' Physical Memory: 16312 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Nicho/OneDrive/Documents/GitHub/FrogWasher/FrogWasher
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52242
+Successfully changed project path to: C:/Users/Nicho/OneDrive/Documents/GitHub/FrogWasher/FrogWasher
+C:/Users/Nicho/OneDrive/Documents/GitHub/FrogWasher/FrogWasher
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [30572] Host "[IP] 192.168.1.237 [Port] 0 [Flags] 2 [Guid] 669618014 [EditorId] 669618014 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-2F7FHP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [30572] Host "[IP] 192.168.1.237 [Port] 0 [Flags] 2 [Guid] 669618014 [EditorId] 669618014 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-2F7FHP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+Refreshing native plugins compatible for Editor in 21.60 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.18f1 (d29bea25151d)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Nicho/OneDrive/Documents/GitHub/FrogWasher/FrogWasher/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1070 (ID=0x1b81)
+    Vendor:   NVIDIA
+    VRAM:     8067 MB
+    Driver:   31.0.15.5134
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56740
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.016533 seconds.
+- Loaded All Assemblies, in  0.474 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.340 seconds
+Domain Reload Profiling: 811ms
+	BeginReloadAssembly (153ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (83ms)
+	LoadAllAssembliesAndSetupDomain (181ms)
+		LoadAssemblies (147ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (179ms)
+			TypeCache.Refresh (176ms)
+				TypeCache.ScanAssembly (155ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (341ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (263ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (13ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (178ms)
+			ProcessInitializeOnLoadMethodAttributes (60ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.107 seconds
+Refreshing native plugins compatible for Editor in 8.57 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x00032] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:48 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.329 seconds
+Domain Reload Profiling: 2426ms
+	BeginReloadAssembly (241ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (26ms)
+	RebuildCommonClasses (55ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (62ms)
+	LoadAllAssembliesAndSetupDomain (726ms)
+		LoadAssemblies (624ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (268ms)
+			TypeCache.Refresh (227ms)
+				TypeCache.ScanAssembly (203ms)
+			ScanForSourceGeneratedMonoScriptInfo (31ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (1329ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1104ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (104ms)
+			ProcessInitializeOnLoadAttributes (924ms)
+			ProcessInitializeOnLoadMethodAttributes (46ms)
+			AfterProcessingInitializeOnLoad (15ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 7.28 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4057 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (61.7 KB). Loaded Objects now: 4521.
+Memory consumption went from 149.2 MB to 149.2 MB.
+Total: 14.132700 ms (FindLiveObjects: 0.390600 ms CreateObjectMapping: 0.319300 ms MarkObjects: 13.262000 ms  DeleteObjects: 0.159700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 677135.338767 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Atlas.spriteatlas
+  artifactKey: Guid(72ed2a5fe375d7e4bbecf74985d9ecab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Atlas.spriteatlas using Guid(72ed2a5fe375d7e4bbecf74985d9ecab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c3dd1d9a9b22f4bb786372a8fd4d70d') in 0.013890 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Sprites.png
+  artifactKey: Guid(5fe5454ec8605de43809133b020d1b69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Sprites.png using Guid(5fe5454ec8605de43809133b020d1b69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cbe71622fa1e13f8d90a4d51e4e4e5b') in 0.259333 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 91
+========================================================================
+Received Import Request.
+  Time since last request: 5.240308 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround1.asset
+  artifactKey: Guid(87e01daaf00494e41a93f0a7a655a354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround1.asset using Guid(87e01daaf00494e41a93f0a7a655a354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22cf46e271c0f9367fc6cf5276ae7a5f') in 0.036681 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround7.asset
+  artifactKey: Guid(7a893bf30e8b23047a78c094f422fec4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround7.asset using Guid(7a893bf30e8b23047a78c094f422fec4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f0a51bb17948d7285afa6aa443de011') in 0.019081 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround15.asset
+  artifactKey: Guid(d195d91c69c79394e962597873b6825c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround15.asset using Guid(d195d91c69c79394e962597873b6825c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a3f5c9a204aa8d945e5ad6ddb82f024') in 0.015911 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround12.asset
+  artifactKey: Guid(e358b3304d2419346b2b61a5a4e586c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround12.asset using Guid(e358b3304d2419346b2b61a5a4e586c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '514ba1a7b09a73e26c5d707001b72eb9') in 0.013309 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileSpikes.asset
+  artifactKey: Guid(555a990b3ef05c341891c6968ce6ece1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileSpikes.asset using Guid(555a990b3ef05c341891c6968ce6ece1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a854773089426e48f98aee9544c667b') in 0.030738 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround22.asset
+  artifactKey: Guid(c9f4a96883da31347af7b87afb7b1cc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround22.asset using Guid(c9f4a96883da31347af7b87afb7b1cc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5477888780c0173c1beb511cd8892c3') in 0.024250 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant11.asset
+  artifactKey: Guid(5acb89ffd6777f34faa2cb660b3b995c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant11.asset using Guid(5acb89ffd6777f34faa2cb660b3b995c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd68f06a51c3cc4255cf58153fa4a8fa4') in 0.013490 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround2.asset
+  artifactKey: Guid(895290c18cceb6c4199b1b9eb62fff7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround2.asset using Guid(895290c18cceb6c4199b1b9eb62fff7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79d8f257512a4f2768678ccc8cf14a07') in 0.015946 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant1.asset
+  artifactKey: Guid(aab6cd1f12664da44b49bc4640c84085) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant1.asset using Guid(aab6cd1f12664da44b49bc4640c84085) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67f8b16b6ac01197effbc12b80b9ab0e') in 0.012298 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround11.asset
+  artifactKey: Guid(0157b2ac8baf50c40ae0ea942f17e23a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround11.asset using Guid(0157b2ac8baf50c40ae0ea942f17e23a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d33cf79f685c75440928bb06f7c0b1d') in 0.014967 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileFence5.asset
+  artifactKey: Guid(c3579015b08644c40ab6dbfe2cdb26e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileFence5.asset using Guid(c3579015b08644c40ab6dbfe2cdb26e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a835e7a1d4f7fbedb8d776997019382') in 0.045770 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround6.asset
+  artifactKey: Guid(74b826facc8d6814db21d4e1652285b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround6.asset using Guid(74b826facc8d6814db21d4e1652285b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7566123fe665292d27c1efadb5436c7c') in 0.029617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant8.asset
+  artifactKey: Guid(78b42d183cb61fe4c82135fca595705a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant8.asset using Guid(78b42d183cb61fe4c82135fca595705a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b107741cd3c8600f7ab4b6fba511fdd') in 0.014268 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround4.asset
+  artifactKey: Guid(cfd7f7e4c493f6c45b7a71202ba913e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround4.asset using Guid(cfd7f7e4c493f6c45b7a71202ba913e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce10da1de7785560fcee70e6288eec29') in 0.011178 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround31.asset
+  artifactKey: Guid(7ac42f0c832a0da4a8927fc60e0eb143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround31.asset using Guid(7ac42f0c832a0da4a8927fc60e0eb143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83298cb3ac0d03f46270ecd8d279d74f') in 0.015363 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround30.asset
+  artifactKey: Guid(9d55df0d95ae5214a9840628a7bd3a01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround30.asset using Guid(9d55df0d95ae5214a9840628a7bd3a01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae3990e26752f6a5eecd4d69e42eb5eb') in 0.015837 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileFence6.asset
+  artifactKey: Guid(c985d2f526a890a4fa3225faa29ab67e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileFence6.asset using Guid(c985d2f526a890a4fa3225faa29ab67e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8004ca3194cda09acbf7656f4bde1d7f') in 0.014276 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant2.asset
+  artifactKey: Guid(77b322af31582374a99e73a5f0b3ba2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant2.asset using Guid(77b322af31582374a99e73a5f0b3ba2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3778038691c623187541f16c80e1957d') in 0.030992 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround1.asset
+  artifactKey: Guid(34d1095c4f4be8b4f9b3e1266da97449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround1.asset using Guid(34d1095c4f4be8b4f9b3e1266da97449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '662b3178d0b320da3c27e05d9d30d8da') in 0.016448 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround9.asset
+  artifactKey: Guid(ba03cc6653391e64392d032e4fdcb4cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround9.asset using Guid(ba03cc6653391e64392d032e4fdcb4cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce9ad566e57ef08d760ec87ba3ffe021') in 0.021471 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround4.asset
+  artifactKey: Guid(ec8de8bf2b89d0e418e101655c613c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround4.asset using Guid(ec8de8bf2b89d0e418e101655c613c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd86b9ab459b8d247bce1e990d51d2d32') in 0.025091 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant9.asset
+  artifactKey: Guid(61a96784b91258e43b8f2f71e99d6f2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant9.asset using Guid(61a96784b91258e43b8f2f71e99d6f2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b310ee9988cf8dde9374326a65c2ab66') in 0.013695 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround19.asset
+  artifactKey: Guid(990b46d35dad20345aa74068028763f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround19.asset using Guid(990b46d35dad20345aa74068028763f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f83e624f70354ec13ea581e2827b918') in 0.016589 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround10.asset
+  artifactKey: Guid(4a61f3951d5c9a949a997d1dc9bbefa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround10.asset using Guid(4a61f3951d5c9a949a997d1dc9bbefa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5276ce126884ee5e2e02abd6a71b99d') in 0.016096 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround13.asset
+  artifactKey: Guid(8d1c039693b380846b2e3eb78712f06a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround13.asset using Guid(8d1c039693b380846b2e3eb78712f06a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdd65181389e11d686e0d13dab583dab') in 0.015218 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround26.asset
+  artifactKey: Guid(ae7008dc54dbeef45876afb52f820d1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround26.asset using Guid(ae7008dc54dbeef45876afb52f820d1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce8c170fe22aa7b3800a398fe61e1fc5') in 0.007122 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant4.asset
+  artifactKey: Guid(d33076ed0a56ef446809983460f08a1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant4.asset using Guid(d33076ed0a56ef446809983460f08a1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44b32cf07a437ae5eb44e1a00f15f155') in 0.013867 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant6.asset
+  artifactKey: Guid(44fd4065fe2a5264b8e4be3ac27ff1e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant6.asset using Guid(44fd4065fe2a5264b8e4be3ac27ff1e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de10717865824fa8e4dd52a5f4c72d91') in 0.015409 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant7.asset
+  artifactKey: Guid(745048a998e73484988200e00313e2cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant7.asset using Guid(745048a998e73484988200e00313e2cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc5b504d27912f318a8c976ba167cda5') in 0.014601 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround10.asset
+  artifactKey: Guid(66320e23718a0be4ab749bf155d2d344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround10.asset using Guid(66320e23718a0be4ab749bf155d2d344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9a12210b195c998b5fcd9795f0fcf76') in 0.015872 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround13.asset
+  artifactKey: Guid(c1262a9f725f2214794065ba0db8aa98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround13.asset using Guid(c1262a9f725f2214794065ba0db8aa98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '994c973491ea0b060b29586c186a3338') in 0.013849 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround6.asset
+  artifactKey: Guid(7b090590beb233a43ac9cb2b746aad07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround6.asset using Guid(7b090590beb233a43ac9cb2b746aad07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5425187500e5b133fd31bffe0540ec2') in 0.011064 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround9.asset
+  artifactKey: Guid(28aff7c9d8d86a44d9746c4c50e2bcfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround9.asset using Guid(28aff7c9d8d86a44d9746c4c50e2bcfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '403f5f173c479323aa02554f706bb857') in 0.016798 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant5.asset
+  artifactKey: Guid(b7603721e42a69246b0eaf99856101ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TilePlant5.asset using Guid(b7603721e42a69246b0eaf99856101ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '505ae71d639f7489e849549875f4d653') in 0.015690 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround12.asset
+  artifactKey: Guid(7bef89f4445a7ff4abd5cf2f89cdde95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround12.asset using Guid(7bef89f4445a7ff4abd5cf2f89cdde95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53d65d09decc8c81836fc89e43c44819') in 0.011417 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround21.asset
+  artifactKey: Guid(ea6723564d86a334fad6550a30c17623) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround21.asset using Guid(ea6723564d86a334fad6550a30c17623) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '492a770c9b3b5cf62fab5baa9659e05c') in 0.007175 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround27.asset
+  artifactKey: Guid(c4c51d3a22cae77438ba58d4265567d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround27.asset using Guid(c4c51d3a22cae77438ba58d4265567d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c952de76fc1a5a0a90a9071335488e1') in 0.016872 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround8.asset
+  artifactKey: Guid(02fe7ae6a140eb3428ca6b74b9987b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileBackGround8.asset using Guid(02fe7ae6a140eb3428ca6b74b9987b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9451eb8c37a3ac6e326a3b89c7595cab') in 0.016636 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround20.asset
+  artifactKey: Guid(53dc4e8222ef3a54b9ee4b337062fa57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tilemaps/2D Pixel Art Platformer Biome - American Forest/Tilemap/TileGround20.asset using Guid(53dc4e8222ef3a54b9ee4b337062fa57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0299271b316dc421f6d908188d0e51c') in 0.008920 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  2.961 seconds
+Refreshing native plugins compatible for Editor in 10.50 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in .\Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 14.971 seconds
+Domain Reload Profiling: 17925ms
+	BeginReloadAssembly (239ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (12ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (46ms)
+	RebuildCommonClasses (137ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (46ms)
+	LoadAllAssembliesAndSetupDomain (2516ms)
+		LoadAssemblies (2634ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (15ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (14972ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (978ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (126ms)
+			ProcessInitializeOnLoadAttributes (771ms)
+			ProcessInitializeOnLoadMethodAttributes (49ms)
+			AfterProcessingInitializeOnLoad (16ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 10.00 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4032 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (35.2 KB). Loaded Objects now: 4545.
+Memory consumption went from 149.6 MB to 149.5 MB.
+Total: 13.339000 ms (FindLiveObjects: 0.358700 ms CreateObjectMapping: 0.402400 ms MarkObjects: 12.491900 ms  DeleteObjects: 0.084700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
