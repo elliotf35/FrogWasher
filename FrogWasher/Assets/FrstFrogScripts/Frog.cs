@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Frog : MonoBehaviour
@@ -10,13 +7,13 @@ public class Frog : MonoBehaviour
     public GameObject pwt;
     private Rigidbody2D rb; // Add a reference to Rigidbody2D component
 
-    void Start()
+    private void Start()
     {
         ppr = pwt.GetComponent<PlayerProjectileRender>();
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (health > 0) // Check if the frog's health is greater than zero before moving
         {
@@ -26,6 +23,40 @@ public class Frog : MonoBehaviour
             }
         }
     }
+
+    private void OnGUI()
+    {
+        DrawHealthBarAboveFrog();
+    }
+
+    private void DrawHealthBarAboveFrog()
+    {
+        // Calculate position to draw health bar above the frog
+        Vector3 healthBarPos = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 1.5f);
+
+        // Set maximum width for the health bar
+        float maxHealthBarWidth = 100f; // Adjust this value to your preference
+
+        // Calculate the width of the health bar based on current health
+        float barWidth = Mathf.Clamp(health * (maxHealthBarWidth / 150f), 0f, maxHealthBarWidth); // Assuming max health is 150
+
+        // Set color of background health bar
+        GUI.color = new Color(1f, 1f, 1f, 1f); // White with alpha 1 (fully opaque)
+
+        // Draw background of health bar
+        GUI.Box(new Rect(healthBarPos.x - maxHealthBarWidth / 2, Screen.height - healthBarPos.y - 20, maxHealthBarWidth, 20), "");
+
+        // Set color of health bar
+        GUI.color = new Color(1f, 0f, 0f, 1f); // Red with alpha 1 (fully opaque)
+
+        // Draw foreground of health bar
+        GUI.Box(new Rect(healthBarPos.x - maxHealthBarWidth / 2, Screen.height - healthBarPos.y - 20, barWidth, 20), "");
+    }
+
+
+
+
+
 
     public void TakeDamage(float damageAmount)
     {
@@ -55,14 +86,13 @@ public class Frog : MonoBehaviour
         StartCoroutine(DestroyAfterDelay(3f));
     }
 
-    private IEnumerator DestroyAfterDelay(float delay)
+    private System.Collections.IEnumerator DestroyAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
         // Destroy the game object
         Destroy(gameObject);
     }
-
 
     private bool IsWithin(Vector2 point)
     {
