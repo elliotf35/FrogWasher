@@ -11,10 +11,11 @@ public class Frog : MonoBehaviour
     private float maxHealth = 400;
     private PlayerProjectileRender ppr;
     public GameObject pwt;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private float initialHealthBarWidth;
     private bool initialWidthSet = false; // Flag to check if initial width has been set
     private enemyPatrol patrolScript; 
+    private Animator animator;
 
     // Knockback variables
     public float knockbackStrength = 5f;
@@ -25,6 +26,7 @@ public class Frog : MonoBehaviour
     {
         ppr = pwt.GetComponent<PlayerProjectileRender>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         healthBar = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
         healthBar.transform.SetParent(transform, false);
@@ -42,7 +44,6 @@ public class Frog : MonoBehaviour
         {
             initialHealthBarWidth = healthBarForeground.rectTransform.sizeDelta.x;
             initialWidthSet = true;
-            Debug.Log("Initial Health Bar Width Set: " + initialHealthBarWidth);
         }
     }
 
@@ -107,11 +108,24 @@ public class Frog : MonoBehaviour
 
     private void DisableFrog()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
-        rb.gravityScale = 40;
-        rb.velocity = Vector2.zero;
-        StartCoroutine(DestroyAfterDelay(3f));
+        if (animator != null)
+        {
+            animator.SetBool("IsDying", true);  // Trigger the death animation
+        }
+
+        RemoveBoxCollider();
+        rb.gravityScale = 20;
+        rb.velocity = Vector2.zero; // Immediately stop any current movement
+
+        if (patrolScript != null)
+        {
+            patrolScript.canMove = false; // Stop the patrol script from moving
+            patrolScript.rb.velocity = Vector2.zero; // Also immediately stop any patrol movement
+        }
+
+        StartCoroutine(DestroyAfterDelay(.8f)); // Delay destruction to show any death animations
     }
+
 
     private System.Collections.IEnumerator DestroyAfterDelay(float delay)
     {
@@ -119,4 +133,14 @@ public class Frog : MonoBehaviour
         Destroy(healthBar);
         Destroy(gameObject);
     }
+
+    void RemoveBoxCollider()
+    {
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        if (collider != null)
+        {
+            Destroy(collider);
+        }
+    }
+    
 }

@@ -5,7 +5,7 @@ public class enemyPatrol : MonoBehaviour
 {
     public GameObject pointA;
     public GameObject pointB;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float originalSpeed;
     public float speed;
     private Transform currentPoint;
@@ -57,4 +57,5 @@ public class enemyPatrol : MonoBehaviour
         localScale.x *= -1;
         transform.localScale = localScale;
     }
+    
 }
