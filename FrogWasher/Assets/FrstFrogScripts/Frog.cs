@@ -1,104 +1,86 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Frog : MonoBehaviour
 {
-    public float health = 150;
+    public float health = 370;
+    public GameObject healthBarPrefab; // Assign the health bar prefab in the inspector
+    private GameObject healthBar; // This will be the instantiated health bar
+    public Image healthBarForeground; // This will reference the foreground image of the instantiated prefab
+    private float maxHealth = 400;
     private PlayerProjectileRender ppr;
     public GameObject pwt;
-    private Rigidbody2D rb; // Add a reference to Rigidbody2D component
+    private Rigidbody2D rb;
+    private float initialHealthBarWidth;
+    private bool initialWidthSet = false; // Flag to check if initial width has been set
 
-    private void Start()
+    void Start()
     {
         ppr = pwt.GetComponent<PlayerProjectileRender>();
-        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        rb = GetComponent<Rigidbody2D>();
+
+        healthBar = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
+        healthBar.transform.SetParent(transform, false);
+        healthBar.transform.localPosition = new Vector3(0, 0.15f, 0);
+        healthBar.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+
+        healthBarForeground = healthBar.GetComponentInChildren<Image>();
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        if (health > 0) // Check if the frog's health is greater than zero before moving
+        // Set initial width on the first Update call after instantiation
+        if (!initialWidthSet && healthBarForeground != null)
         {
-            if (ppr.firing && IsWithin(ppr.secondPoint))
-            {
-                TakeDamage(1); // Reduce health
-            }
+            initialHealthBarWidth = healthBarForeground.rectTransform.sizeDelta.x;
+            initialWidthSet = true;
+            Debug.Log("Initial Health Bar Width Set: " + initialHealthBarWidth);
         }
     }
-
-    private void OnGUI()
-    {
-        DrawHealthBarAboveFrog();
-    }
-
-    private void DrawHealthBarAboveFrog()
-    {
-        // Calculate position to draw health bar above the frog
-        Vector3 healthBarPos = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 1.5f);
-
-        // Set maximum width for the health bar
-        float maxHealthBarWidth = 100f; // Adjust this value to your preference
-
-        // Calculate the width of the health bar based on current health
-        float barWidth = Mathf.Clamp(health * (maxHealthBarWidth / 150f), 0f, maxHealthBarWidth); // Assuming max health is 150
-
-        // Set color of background health bar
-        GUI.color = new Color(1f, 1f, 1f, 1f); // White with alpha 1 (fully opaque)
-
-        // Draw background of health bar
-        GUI.Box(new Rect(healthBarPos.x - maxHealthBarWidth / 2, Screen.height - healthBarPos.y - 20, maxHealthBarWidth, 20), "");
-
-        // Set color of health bar
-        GUI.color = new Color(1f, 0f, 0f, 1f); // Red with alpha 1 (fully opaque)
-
-        // Draw foreground of health bar
-        GUI.Box(new Rect(healthBarPos.x - maxHealthBarWidth / 2, Screen.height - healthBarPos.y - 20, barWidth, 20), "");
-    }
-
-
-
-
-
 
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
-        Debug.Log($"Frog hit! New health: {health}"); // Log health reduction
-
-        // Check for zero or negative health
+        if (initialWidthSet) // Only update health bar if the initial width has been set
+        {
+            UpdateHealthBar();
+        }
         if (health <= 0)
         {
             DisableFrog();
         }
     }
 
+    private void UpdateHealthBar()
+    {
+        if (healthBarForeground != null)
+        {
+            // Ensure health does not exceed maxHealth
+            if (health > maxHealth) {
+                health = maxHealth;
+            }
+
+            // Calculate health ratio and clamp it to ensure it's never more than 1
+            float healthRatio = Mathf.Clamp(health / maxHealth, 0f, 1f);
+
+            // Update the width of the health bar
+            healthBarForeground.rectTransform.sizeDelta = new Vector2(initialHealthBarWidth * healthRatio, healthBarForeground.rectTransform.sizeDelta.y);;
+        }
+    }
+
+
     private void DisableFrog()
     {
-        BoxCollider2D bc = GetComponent<BoxCollider2D>();
-        bc.enabled = false;
-        Debug.Log("Frog health is zero, disabling collider.");
-
-        // Increase gravity to make the frog fall quickly
-        rb.gravityScale = 1000;
-
-        // Stop frog's movement when health reaches zero
+        GetComponent<BoxCollider2D>().enabled = false;
+        rb.gravityScale = 40;
         rb.velocity = Vector2.zero;
-
-        // Start coroutine to destroy the frog after a delay
         StartCoroutine(DestroyAfterDelay(3f));
     }
 
     private System.Collections.IEnumerator DestroyAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        // Destroy the game object
+        Destroy(healthBar); // Also destroy the health bar
         Destroy(gameObject);
-    }
-
-    private bool IsWithin(Vector2 point)
-    {
-        Collider2D collider = GetComponent<Collider2D>();
-        Vector2 closestPoint = collider.ClosestPoint(point);
-        float distance = Vector2.Distance(point, closestPoint);
-        return distance < 0.1f; // Use a small but nonzero distance
     }
 }
