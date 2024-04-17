@@ -1,51 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class enemyPatrol : MonoBehaviour
 {
     public GameObject pointA;
     public GameObject pointB;
     private Rigidbody2D rb;
-    private Animator anim;
-    private Transform currentPoint;
+    public float originalSpeed;
     public float speed;
+    private Transform currentPoint;
+    public bool canMove = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
+        originalSpeed = speed; // Initialize and store the original speed
     }
 
-    // Update is called once per frame
     void Update()
     {
-     Vector2 point = currentPoint.position - transform.position;
-     if(currentPoint == pointB.transform){
-        rb.velocity = new Vector2(speed, 0);
-     }   
-     else{
-        rb.velocity = new Vector2(-speed,0);
-     }
-     if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform){
-        flip();
-        currentPoint = pointA.transform;
-     }
-     if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform){
-        flip();
-        currentPoint = pointB.transform;
-     }
+        if (!canMove)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
+        Vector2 point = currentPoint.position - transform.position;
+        rb.velocity = currentPoint == pointB.transform ? new Vector2(speed, 0) : new Vector2(-speed, 0);
+
+        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
+        {
+            flip();
+            currentPoint = currentPoint == pointB.transform ? pointA.transform : pointB.transform;
+        }
     }
 
-    private void flip(){
-        Vector3 localScale = transform.localScale;
-        localScale.x *=-1;
-        transform.localScale = localScale;  
+    public void ApplySlow(float slowFactor, float duration)
+    {
+        float targetSpeed = originalSpeed * slowFactor; // Calculate target speed
+        if (speed > targetSpeed)  // Only apply slow if it results in a lower speed than currently set
+            speed = targetSpeed;
+        
+        StartCoroutine(RestoreSpeed(duration));
     }
-    private void OnDrawGizmos(){
-        Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
-        Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
-    }
-
     
+    IEnumerator RestoreSpeed(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        speed = originalSpeed; // Restore the original speed
+    }
+
+    private void flip()
+    {
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
+    }
 }

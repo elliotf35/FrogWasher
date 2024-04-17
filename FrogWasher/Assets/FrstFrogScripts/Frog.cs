@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections; 
 
 public class Frog : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class Frog : MonoBehaviour
     private Rigidbody2D rb;
     private float initialHealthBarWidth;
     private bool initialWidthSet = false; // Flag to check if initial width has been set
+    private enemyPatrol patrolScript; 
+
+    // Knockback variables
+    public float knockbackStrength = 5f;
+    public float knockbackDuration = 0.5f;
+    private bool canMove = true;
 
     void Start()
     {
@@ -25,6 +32,7 @@ public class Frog : MonoBehaviour
         healthBar.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
 
         healthBarForeground = healthBar.GetComponentInChildren<Image>();
+        patrolScript = GetComponent<enemyPatrol>();
     }
 
     void Update()
@@ -38,7 +46,7 @@ public class Frog : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount, Vector2 damageDirection)
     {
         health -= damageAmount;
         if (initialWidthSet) // Only update health bar if the initial width has been set
@@ -49,25 +57,53 @@ public class Frog : MonoBehaviour
         {
             DisableFrog();
         }
+        else
+        {
+            Knockback(damageDirection);
+            if (patrolScript != null)
+            {
+                patrolScript.ApplySlow(0.5f, 2f); // Apply a slow of 50% for 2 seconds
+            }
+        }
+    }
+
+    IEnumerator EnableMovementAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (patrolScript != null)
+            patrolScript.canMove = true; // Re-enable movement in the patrol script
+    }
+
+    private void Knockback(Vector2 damageDirection)
+    {
+        if (canMove)
+        {
+            rb.AddForce(-damageDirection.normalized * knockbackStrength, ForceMode2D.Impulse);
+            if (patrolScript != null)
+                patrolScript.ApplySlow(0.25f, knockbackDuration); 
+        }
+    }
+
+    IEnumerator TempDisableMovement(float duration)
+    {
+        float previousSpeed = patrolScript.speed;  
+        patrolScript.speed *= 0.25f;  
+        yield return new WaitForSeconds(duration);
+        patrolScript.speed = previousSpeed;  
     }
 
     private void UpdateHealthBar()
     {
         if (healthBarForeground != null)
         {
-            // Ensure health does not exceed maxHealth
             if (health > maxHealth) {
                 health = maxHealth;
             }
 
-            // Calculate health ratio and clamp it to ensure it's never more than 1
             float healthRatio = Mathf.Clamp(health / maxHealth, 0f, 1f);
-
-            // Update the width of the health bar
             healthBarForeground.rectTransform.sizeDelta = new Vector2(initialHealthBarWidth * healthRatio, healthBarForeground.rectTransform.sizeDelta.y);;
         }
     }
-
 
     private void DisableFrog()
     {
@@ -80,7 +116,7 @@ public class Frog : MonoBehaviour
     private System.Collections.IEnumerator DestroyAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Destroy(healthBar); // Also destroy the health bar
+        Destroy(healthBar);
         Destroy(gameObject);
     }
 }

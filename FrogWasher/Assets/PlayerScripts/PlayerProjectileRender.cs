@@ -1,10 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerProjectileRender : MonoBehaviour
 {
     private readonly float width = .25f;
     private readonly float jetpackWidth = .5f; // Width for the jetpack stream
-    private float maxDistance = 2f; // Maximum distance the line should be drawn
+    private float maxDistance = 1.4f; // Maximum distance the line should be drawn
     private float jetpackDistance = 1f; // Shorter distance for the jetpack stream
 
     private LineRenderer lineRenderer;
@@ -147,7 +148,8 @@ public class PlayerProjectileRender : MonoBehaviour
             if (frog != null)
             {
                 Debug.Log("Frog hit, dealing damage.");
-                frog.TakeDamage(5);
+                Vector2 damageDirection = (hit.point - new Vector2(transform.position.x, transform.position.y)).normalized;
+                frog.TakeDamage(5, damageDirection);
             }
         }
         else
