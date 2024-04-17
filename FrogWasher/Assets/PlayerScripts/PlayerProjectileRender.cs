@@ -49,35 +49,33 @@ public class PlayerProjectileRender : MonoBehaviour
 
     void Update()
     {
-        // Jetpack action
-        if (Input.GetButton("Fire2") && water > 0 && characterRigidbody != null)
+        // Reset shooting and jetpacking animations when not active
+        if (!Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
+        {
+            if (powerWasherAnimator != null)
+            {
+                powerWasherAnimator.SetBool("IsJetPacking", false);
+                powerWasherAnimator.SetBool("IsShooting", false);
+            }
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, transform.position);
+        }
+
+        if (Input.GetButton("Fire1") && water > 0)
+        {
+            UseWaterAsProjectile();
+        }
+        else if (Input.GetButton("Fire2") && water > 0 && characterRigidbody != null)
         {
             UseWaterAsJetpack();
         }
-        else // Not jetpacking
-        {
-            // If the player was firing (jetpacking) but now is not, we turn off the jetpack
-            if (firing && powerWasherAnimator != null) 
-            {
-                powerWasherAnimator.SetBool("IsJetPacking", false);
-            }
-            firing = false;
 
-            // Projectile action
-            if (Input.GetButton("Fire1") && water > 0)
-            {
-                UseWaterAsProjectile();
-            }
-            else // Neither jetpacking nor firing
-            {
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, transform.position);
-                if (refillTimeout > 0)
-                    refillTimeout--;
-                if (water < maxWater && refillTimeout == 0)
-                    water+=18;
-            }
-        }
+        // Manage water and ammo UI
+        if (refillTimeout > 0)
+            refillTimeout--;
+        if (water < maxWater && refillTimeout == 0)
+            water += 18;
+
         waterBar.SetAmmo(water);
     }
 
@@ -85,7 +83,11 @@ public class PlayerProjectileRender : MonoBehaviour
     {
         firing = true;
         SetProjectileVisuals(width, width); // Reset to default width for normal shooting
-        if (powerWasherAnimator != null) powerWasherAnimator.SetBool("IsJetPacking", false);
+        if (powerWasherAnimator != null) 
+        {
+            powerWasherAnimator.SetBool("IsJetPacking", false); // Ensure jetpack is not flagged
+            powerWasherAnimator.SetBool("IsShooting", true);   // Flag shooting as active
+        }
         ShootProjectile(maxDistance);
     }
 
@@ -93,7 +95,11 @@ public class PlayerProjectileRender : MonoBehaviour
     {
         firing = true;
         SetProjectileVisuals(jetpackWidth, jetpackWidth); // Wider and thicker for jetpack
-        if (powerWasherAnimator != null) powerWasherAnimator.SetBool("IsJetPacking", true);
+        if (powerWasherAnimator != null) 
+        {
+            powerWasherAnimator.SetBool("IsJetPacking", true);
+            powerWasherAnimator.SetBool("IsShooting", false); // Ensure shooting is not flagged
+        }
 
         // Correctly calculate the mouse position like you do for shooting
         mousePosition = Input.mousePosition;
@@ -158,13 +164,5 @@ public class PlayerProjectileRender : MonoBehaviour
     {
         lineRenderer.startWidth = startWidth;
         lineRenderer.endWidth = endWidth;
-    }
-
-    private void StopJetpacking()
-    {
-        if (powerWasherAnimator != null)
-        {
-            powerWasherAnimator.SetBool("IsJetPacking", false);
-        }
     }
 }
