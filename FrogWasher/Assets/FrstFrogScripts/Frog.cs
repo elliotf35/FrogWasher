@@ -28,14 +28,18 @@ public class Frog : MonoBehaviour
         ppr = pwt.GetComponent<PlayerProjectileRender>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-        healthBar = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
-        healthBar.transform.SetParent(transform, false);
-        healthBar.transform.localPosition = new Vector3(0, 0.15f, 0);
-        healthBar.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-
-        healthBarForeground = healthBar.GetComponentInChildren<Image>();
         patrolScript = GetComponent<enemyPatrol>();
+
+        SetupHealthBar();
+    }
+
+    void SetupHealthBar()
+    {
+        healthBar = Instantiate(healthBarPrefab, transform.position + Vector3.up * 0.15f, Quaternion.identity, transform);
+        healthBar.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        healthBarForeground = healthBar.GetComponentInChildren<Image>();
+        initialHealthBarWidth = healthBarForeground.rectTransform.sizeDelta.x;
+        initialWidthSet = true;
     }
 
     void Update()
@@ -51,10 +55,8 @@ public class Frog : MonoBehaviour
     public void TakeDamage(float damageAmount, Vector2 damageDirection)
     {
         health -= damageAmount;
-        if (initialWidthSet) // Only update health bar if the initial width has been set
-        {
-            UpdateHealthBar();
-        }
+        UpdateHealthBar();
+
         if (health <= 0)
         {
             DisableFrog();
@@ -62,37 +64,41 @@ public class Frog : MonoBehaviour
         else
         {
             Knockback(damageDirection);
+            // Ensure slowdown is clearly applied, consider adjusting the factor and duration.
             if (patrolScript != null)
             {
-                patrolScript.ApplySlow(0.5f, 2f); // Apply a slow of 50% for 2 seconds
+                patrolScript.ApplySlow(0.5f, 2f); // Slows down to 50% of original speed for 2 seconds
             }
         }
     }
 
-    IEnumerator EnableMovementAfterDelay(float delay)
+
+    private void ApplyDamageEffects(Vector2 damageDirection)
     {
-        yield return new WaitForSeconds(delay);
-        if (patrolScript != null)
-            patrolScript.canMove = true; // Re-enable movement in the patrol script
+        Knockback(damageDirection);
+        patrolScript?.ApplySlow(0.5f, 2f);  // Apply a slow of 50% for 2 seconds
     }
 
     private void Knockback(Vector2 damageDirection)
     {
         if (canMove)
         {
-            rb.AddForce(-damageDirection.normalized * knockbackStrength, ForceMode2D.Impulse);
-            if (patrolScript != null)
-                patrolScript.ApplySlow(0.25f, knockbackDuration); 
+            // Adjust the knockback strength based on current health to reduce as health decreases
+            float adjustedKnockbackStrength = knockbackStrength * (health / maxHealth);
+            Vector2 knockbackForce = -damageDirection.normalized * adjustedKnockbackStrength;
+            rb.AddForce(knockbackForce, ForceMode2D.Impulse);
         }
     }
 
-    IEnumerator TempDisableMovement(float duration)
+
+    IEnumerator TempDisableMovement(float duration, float slowFactor)
     {
-        float previousSpeed = patrolScript.speed;  
-        patrolScript.speed *= 0.25f;  
+        var currentSpeed = patrolScript.speed;
+        patrolScript.speed *= slowFactor;
         yield return new WaitForSeconds(duration);
-        patrolScript.speed = previousSpeed;  
+        patrolScript.speed = currentSpeed; // Restore the exact current speed, not the originalSpeed
     }
+
 
     private void UpdateHealthBar()
     {
