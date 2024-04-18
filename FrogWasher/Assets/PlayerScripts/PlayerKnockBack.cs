@@ -1,31 +1,26 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerKnockback : MonoBehaviour
 {
     public float knockbackStrength = 10f;
     public float verticalBoost = 1f;
     public float immunityDuration = 1f;  // Duration of immunity and non-collision
+    public int maxHealth = 6;            // Maximum health points
+    private int currentHealth;           // Current health points
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private bool canBeKnockedBack = true;  // Flag to control knockback application
+    public HealthDisplay healthDisplay;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (rb == null) {
-            Debug.LogError("PlayerKnockback: No Rigidbody2D found on the player.");
-        }
-        if (animator == null) {
-            Debug.LogError("PlayerKnockback: No Animator found on the player.");
-        }
-        if (spriteRenderer == null) {
-            Debug.LogError("PlayerKnockback: No SpriteRenderer found on the player.");
-        }
+        currentHealth = maxHealth;  // Initialize health
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -33,20 +28,30 @@ public class PlayerKnockback : MonoBehaviour
         Frog enemy = collision.gameObject.GetComponent<Frog>();
         if (enemy != null && canBeKnockedBack)
         {
-            // Calculate the direction from the enemy to the player
             Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            Vector2 forceDirection = new Vector2(knockbackDirection.x, verticalBoost).normalized;
+            rb.AddForce(forceDirection * knockbackStrength, ForceMode2D.Impulse);
 
-            // Adding more horizontal push by increasing the x component and applying vertical boost
-            Vector2 forceDirection = new Vector2(knockbackDirection.x, verticalBoost).normalized * knockbackStrength;
-
-            // Ensure the force is pushing the player away, adjust x to always push away
-            forceDirection.x *= -1;
-
-            // Apply the knockback force
-            rb.AddForce(forceDirection, ForceMode2D.Impulse);
+            ReduceHealth(2);  // Reduce health by 2 on each collision
 
             StartCoroutine(Invulnerability());
         }
+    }
+
+    void ReduceHealth(int damage)
+    {
+        currentHealth -= damage;
+        healthDisplay.UpdateHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            HandleDefeat();  // Handle the player's defeat
+        }
+    }
+
+    void HandleDefeat()
+    {
+        Debug.Log("Player Defeated - Restarting Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reloads the current scene
     }
 
     IEnumerator Invulnerability()
@@ -56,16 +61,20 @@ public class PlayerKnockback : MonoBehaviour
         yield return new WaitForSeconds(.1f);  // Just enough time for the animation to trigger
         animator.SetBool("isHurt", false);
 
-        // Ignore collisions with the enemy layer
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
 
         StartCoroutine(BlinkEffect(immunityDuration));
         yield return new WaitForSeconds(immunityDuration);
 
-        // Re-enable collisions with the enemy layer
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
         canBeKnockedBack = true;  // Re-enable knockback
         spriteRenderer.enabled = true; // Ensure sprite is visible after blinking
+    }
+    public void IncreaseHealth(int amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Min(currentHealth, maxHealth); // Ensure health does not exceed maximum
+        healthDisplay.UpdateHealth(currentHealth); // Update the UI
     }
 
     IEnumerator BlinkEffect(float duration)
@@ -78,4 +87,5 @@ public class PlayerKnockback : MonoBehaviour
         }
         spriteRenderer.enabled = true; // Ensure sprite is visible after blinking
     }
+
 }

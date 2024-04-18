@@ -16,6 +16,7 @@ public class Frog : MonoBehaviour
     private bool initialWidthSet = false; // Flag to check if initial width has been set
     private enemyPatrol patrolScript; 
     private Animator animator;
+    public PlayerKnockback playerKnockback;
 
     // Knockback variables
     public float knockbackStrength = 5f;
@@ -113,14 +114,19 @@ public class Frog : MonoBehaviour
             animator.SetBool("IsDying", true);  // Trigger the death animation
         }
 
+        if (playerKnockback != null)
+        {
+            playerKnockback.IncreaseHealth(1);  // Call to increase health
+        }
+
         RemoveBoxCollider();
         rb.gravityScale = 20;
-        rb.velocity = Vector2.zero; // Immediately stop any current movement
+        rb.velocity = Vector2.zero;
 
         if (patrolScript != null)
         {
-            patrolScript.canMove = false; // Stop the patrol script from moving
-            patrolScript.rb.velocity = Vector2.zero; // Also immediately stop any patrol movement
+            patrolScript.canMove = false;
+            patrolScript.rb.velocity = Vector2.zero;
         }
 
         StartCoroutine(DestroyAfterDelay(.8f)); // Delay destruction to show any death animations
