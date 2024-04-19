@@ -14,6 +14,8 @@ public class PlayerKnockback : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool canBeKnockedBack = true;  // Flag to control knockback application
     public HealthDisplay healthDisplay;
+    public AudioSource audioSource;
+    public AudioClip hitSound;
 
     void Start()
     {
@@ -42,11 +44,19 @@ public class PlayerKnockback : MonoBehaviour
     {
         currentHealth -= damage;
         healthDisplay.UpdateHealth(currentHealth);
+
+        // Play hit sound
+        if (hitSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hitSound);
+        }
+
         if (currentHealth <= 0)
         {
             HandleDefeat();  // Handle the player's defeat
         }
     }
+
 
     void HandleDefeat()
     {
