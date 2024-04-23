@@ -10,20 +10,24 @@ public class PauseButton : MonoBehaviour
     public void Pause(){
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+        AudioListener.pause = true; 
     }
 
     public void Home(){
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
+        AudioListener.pause = false; 
     }
 
     public void Resume(){
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        AudioListener.pause = false; 
     }
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+        AudioListener.pause = false; 
     }
 }
