@@ -4,15 +4,15 @@ using System.Collections;
 public class PlayerProjectileRender : MonoBehaviour
 {
     private readonly float width = .25f;
-    private readonly float jetpackWidth = .5f; // Width for the jetpack stream
-    private float maxDistance = 1.4f; // Maximum distance the line should be drawn
-    private float jetpackDistance = 1f; // Shorter distance for the jetpack stream
+    private readonly float jetpackWidth = .5f; 
+    private float maxDistance = 1.4f; 
+    private float jetpackDistance = 1f; 
 
     private LineRenderer lineRenderer;
     private Vector3 mousePosition;
-    public GameObject character; // Add a public reference to your character
+    public GameObject character; 
     public GameObject powerWasherTip;
-    private Rigidbody2D characterRigidbody; // Rigidbody2D reference for the character
+    private Rigidbody2D characterRigidbody;
 
     public int maxWater = 1000;
     public int water;
@@ -21,20 +21,20 @@ public class PlayerProjectileRender : MonoBehaviour
     public bool firing;
     private Animator powerWasherAnimator;
     public WaterBar waterBar;
-    public float jetpackForce = 10f; // Control the strength of the jetpack
+    public float jetpackForce = 10f; 
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2; // Two points: start and end
+        lineRenderer.positionCount = 2; 
         lineRenderer.startWidth = width;
         lineRenderer.endWidth = width;
         water = maxWater;
         waterBar.SetMaxAmmo(water);
 
-        if (character != null) // Make sure the character is assigned
+        if (character != null) 
         {
-            characterRigidbody = character.GetComponent<Rigidbody2D>(); // Get the Rigidbody2D from the character
+            characterRigidbody = character.GetComponent<Rigidbody2D>(); 
             if (characterRigidbody == null)
             {
                 Debug.LogError("Missing Rigidbody2D on the character object.");
@@ -50,7 +50,6 @@ public class PlayerProjectileRender : MonoBehaviour
 
     void Update()
     {
-        // Reset shooting and jetpacking animations when not active
         if (!Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
         {
             if (powerWasherAnimator != null)
@@ -71,7 +70,6 @@ public class PlayerProjectileRender : MonoBehaviour
             UseWaterAsJetpack();
         }
 
-        // Manage water and ammo UI
         if (refillTimeout > 0)
             refillTimeout--;
         if (water < maxWater && refillTimeout == 0)
@@ -83,38 +81,36 @@ public class PlayerProjectileRender : MonoBehaviour
     private void UseWaterAsProjectile()
     {
         firing = true;
-        SetProjectileVisuals(width, width); // Reset to default width for normal shooting
+        SetProjectileVisuals(width, width); 
         if (powerWasherAnimator != null) 
         {
-            powerWasherAnimator.SetBool("IsJetPacking", false); // Ensure jetpack is not flagged
-            powerWasherAnimator.SetBool("IsShooting", true);   // Flag shooting as active
+            powerWasherAnimator.SetBool("IsJetPacking", false); 
+            powerWasherAnimator.SetBool("IsShooting", true);   
         }
         ShootProjectile(maxDistance);
+
+        if (water <= 0 && powerWasherAnimator != null) powerWasherAnimator.SetBool("IsShooting", false);
     }
 
     private void UseWaterAsJetpack()
     {
         firing = true;
-        SetProjectileVisuals(jetpackWidth, jetpackWidth); // Wider and thicker for jetpack
+        SetProjectileVisuals(jetpackWidth, jetpackWidth); 
         if (powerWasherAnimator != null) 
         {
             powerWasherAnimator.SetBool("IsJetPacking", true);
-            powerWasherAnimator.SetBool("IsShooting", false); // Ensure shooting is not flagged
+            powerWasherAnimator.SetBool("IsShooting", false); 
         }
 
-        // Correctly calculate the mouse position like you do for shooting
         mousePosition = Input.mousePosition;
-        // Important: Adjust the Z position to be the distance from the camera to the character
         mousePosition.z = Camera.main.WorldToScreenPoint(transform.position).z;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        // Calculate the direction from the character to the mouse position
-        Vector3 direction = (new Vector3(mousePosition.x, mousePosition.y, transform.position.z) - transform.position).normalized;
 
-        // Apply force in the opposite direction of where the mouse is pointing
+        Vector3 direction = (new Vector3(mousePosition.x, mousePosition.y, transform.position.z) - transform.position).normalized;
         characterRigidbody.AddForce(-direction * jetpackForce, ForceMode2D.Impulse);
 
-        ShootProjectile(jetpackDistance); // Use a shorter distance for the jetpack
+        ShootProjectile(jetpackDistance); 
 
         if (powerWasherAnimator != null) 
         {
@@ -130,7 +126,7 @@ public class PlayerProjectileRender : MonoBehaviour
     private void ShootProjectile(float distance)
     {
         mousePosition = Input.mousePosition;
-        mousePosition.z = Mathf.Abs(Camera.main.transform.position.z - transform.position.z); // Ensure the z-depth is calculated correctly
+        mousePosition.z = Mathf.Abs(Camera.main.transform.position.z - transform.position.z); 
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         Vector3 direction = (mousePosition - transform.position).normalized;
@@ -141,7 +137,6 @@ public class PlayerProjectileRender : MonoBehaviour
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, hit.point);
 
-            // Debug to check what is being hit
             Debug.Log("Hit: " + hit.collider.gameObject.name);
 
             Frog frog = hit.collider.GetComponent<Frog>();
@@ -151,13 +146,20 @@ public class PlayerProjectileRender : MonoBehaviour
                 Vector2 damageDirection = (hit.point - new Vector2(transform.position.x, transform.position.y)).normalized;
                 frog.TakeDamage(5, damageDirection);
             }
+
+            Boss boss = hit.collider.GetComponent<Boss>();
+            if (boss != null) 
+            {
+                Vector2 damageDirection = (hit.point - new Vector2(transform.position.x, transform.position.y)).normalized;
+                boss.TakeDamage(2);  
+            }
         }
         else
         {
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, transform.position + direction * distance);
         }
-        water--;
+        water-= 2;
         refillTimeout = 300;
     }
 

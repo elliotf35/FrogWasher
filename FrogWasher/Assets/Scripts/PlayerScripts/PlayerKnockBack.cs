@@ -40,7 +40,7 @@ public class PlayerKnockback : MonoBehaviour
         }
     }
 
-    void ReduceHealth(int damage)
+    public void ReduceHealth(int damage)
     {
         currentHealth -= damage;
         healthDisplay.UpdateHealth(currentHealth);
