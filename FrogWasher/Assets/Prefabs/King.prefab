@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 6305951046879891647}
   - component: {fileID: 58670362041119539}
   - component: {fileID: 373879073041032731}
+  - component: {fileID: -3890949880100223597}
   m_Layer: 7
   m_Name: PowerWasherTip
   m_TagString: Untagged
@@ -286,6 +287,7 @@ MonoBehaviour:
   firing: 0
   waterBar: {fileID: 0}
   jetpackForce: 0.4
+  jetpackForceX: 0
 --- !u!120 &58670362041119539
 LineRenderer:
   serializedVersion: 2
@@ -411,6 +413,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3890949880100223597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194238309546156619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
 --- !u!1 &8152225154848106522
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +732,8 @@ MonoBehaviour:
   immunityDuration: 1.5
   maxHealth: 6
   healthDisplay: {fileID: 0}
+  audioSource: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!1001 &1015984805657403735
 PrefabInstance:
   m_ObjectHideFlags: 0

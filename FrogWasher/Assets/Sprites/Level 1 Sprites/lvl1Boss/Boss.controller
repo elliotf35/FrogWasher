@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8911526056837743137
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5a5351f7e810c4baaae0ee7a0b4d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: 8c1afca622b2a654c854fea6920633e2, type: 3}
+--- !u!114 &-8664107945969093356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5a5351f7e810c4baaae0ee7a0b4d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: 8c1afca622b2a654c854fea6920633e2, type: 3}
 --- !u!114 &-8260808893557077913
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13,7 +39,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minTime: 2
-  maxTime: 4
+  maxTime: 2
 --- !u!114 &-7179136526350382672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,9 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3d3a687db7ddf47bbb2b127dc75021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
-  maxTime: 3
-  speed: 2
+  minTime: 0.5
+  maxTime: 0.5
+  speed: 3
 --- !u!1101 &-2352066626537644694
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -105,6 +131,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4eb00d5df7d5534a86f695feb6abfb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1140697586079533108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5a5351f7e810c4baaae0ee7a0b4d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: e5c0704feee60ec449c5fce4a59ba525, type: 3}
 --- !u!114 &-398445841450125507
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db04a9c75ec1ce4caac6969bc52cf22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 0.5
-  maxTime: 1.5
+  minTime: 2
+  maxTime: 2
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -688,6 +727,7 @@ AnimatorState:
   - {fileID: 1101416658108881090}
   m_StateMachineBehaviours:
   - {fileID: -8260808893557077913}
+  - {fileID: 2101795940554428572}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -717,6 +757,7 @@ AnimatorState:
   - {fileID: 1101361706652474920}
   m_StateMachineBehaviours:
   - {fileID: -398445841450125507}
+  - {fileID: -8911526056837743137}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -746,6 +787,7 @@ AnimatorState:
   - {fileID: 1101467702680615312}
   m_StateMachineBehaviours:
   - {fileID: 7973834392156936343}
+  - {fileID: 3165292009410730341}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -775,6 +817,7 @@ AnimatorState:
   - {fileID: 1101187819723467216}
   m_StateMachineBehaviours:
   - {fileID: -2512077872665294751}
+  - {fileID: 8314826379625185557}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -804,6 +847,7 @@ AnimatorState:
   - {fileID: 1101858915646186436}
   m_StateMachineBehaviours:
   - {fileID: -7179136526350382672}
+  - {fileID: -8664107945969093356}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -831,6 +875,7 @@ AnimatorState:
   m_Transitions: []
   m_StateMachineBehaviours:
   - {fileID: -1905877872631431737}
+  - {fileID: 2827292867108788635}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -860,6 +905,7 @@ AnimatorState:
   - {fileID: 1101182455858468938}
   m_StateMachineBehaviours:
   - {fileID: 4595302437880580945}
+  - {fileID: -1140697586079533108}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -897,7 +943,7 @@ AnimatorStateMachine:
     m_Position: {x: 480, y: -288, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102093323278769798}
-    m_Position: {x: 636, y: 96, z: 0}
+    m_Position: {x: 640, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102317376427276174}
     m_Position: {x: 470, y: 170, z: 0}
@@ -917,6 +963,45 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 720, y: 300, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -3624668429520158568}
+--- !u!114 &2101795940554428572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5a5351f7e810c4baaae0ee7a0b4d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: 8c1afca622b2a654c854fea6920633e2, type: 3}
+--- !u!114 &2827292867108788635
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5a5351f7e810c4baaae0ee7a0b4d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: 8e57fe8096f937b4a8fad3cb2cf8c65e, type: 3}
+--- !u!114 &3165292009410730341
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5a5351f7e810c4baaae0ee7a0b4d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: 8c1afca622b2a654c854fea6920633e2, type: 3}
 --- !u!114 &4595302437880580945
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -929,9 +1014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3d3a687db7ddf47bbb2b127dc75021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
-  maxTime: 3
-  speed: 3.5
+  minTime: 0.7
+  maxTime: 0.7
+  speed: 4
 --- !u!114 &7973834392156936343
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -944,3 +1029,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa62eb7d82f3a149899c2483b8d3c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8314826379625185557
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5a5351f7e810c4baaae0ee7a0b4d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: e5c0704feee60ec449c5fce4a59ba525, type: 3}

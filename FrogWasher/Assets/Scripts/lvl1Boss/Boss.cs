@@ -16,13 +16,19 @@ public class Boss : MonoBehaviour {
     private Transform playerTransform;
     private bool introStarted = false;
     public GameObject player;
+        public AudioClip bossMusicClip; 
+    private AudioSource bossMusicSource;  
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player");
-    }
+        bossMusicSource = gameObject.AddComponent<AudioSource>();  
+        bossMusicSource.clip = bossMusicClip;  
+        bossMusicSource.loop = true;  
+        bossMusicSource.volume = 0.04f; 
+        }
 
     private void Update()
     {
@@ -31,6 +37,7 @@ public class Boss : MonoBehaviour {
             anim.SetTrigger("startIntro"); 
             introStarted = true;  
             bossHealthUI.SetActive(true);
+            bossMusicSource.Play(); 
         }
 
         if (health <= 1000) {
@@ -38,8 +45,10 @@ public class Boss : MonoBehaviour {
         }
 
         if (health <= 0) {
+            isDead = true;
             anim.SetTrigger("death");
             bossHealthUI.SetActive(false);
+            StartCoroutine(FadeOutMusic(10.0f)); 
         }
 
         if (timeBtwDamage > 0) {
@@ -115,4 +124,19 @@ public class Boss : MonoBehaviour {
                 spriteRenderer.enabled = visible;
         }
     }
+
+    IEnumerator FadeOutMusic(float fadeDuration)
+    {
+        float startVolume = bossMusicSource.volume;
+
+        while (bossMusicSource.volume > 0)
+        {
+            bossMusicSource.volume -= startVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+
+        bossMusicSource.Stop();
+        bossMusicSource.volume = startVolume; 
+    }
+
 }

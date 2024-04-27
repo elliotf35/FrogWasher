@@ -16,6 +16,7 @@ public class PlayerKnockback : MonoBehaviour
     public HealthDisplay healthDisplay;
     public AudioSource audioSource;
     public AudioClip hitSound;
+    public float externalForceX;
 
     void Start()
     {
@@ -38,6 +39,11 @@ public class PlayerKnockback : MonoBehaviour
 
             StartCoroutine(Invulnerability());
         }
+    }
+
+    public void AddExternalForceX(float force)
+    {
+        externalForceX = force;
     }
 
     public void ReduceHealth(int damage)

@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class PlayerProjectileRender : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class PlayerProjectileRender : MonoBehaviour
     private Animator powerWasherAnimator;
     public WaterBar waterBar;
     public float jetpackForce = 10f; 
+    public float jetpackForceX = 0;
+    public Transform king;
 
     void Start()
     {
@@ -59,6 +63,14 @@ public class PlayerProjectileRender : MonoBehaviour
             }
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, transform.position);
+
+            jetpackForceX = 0;
+
+            PlayerKnockback playerKnockBack = character.GetComponentInParent<PlayerKnockback>();
+            if (playerKnockBack != null)
+            {
+                playerKnockBack.AddExternalForceX(jetpackForceX);
+            }
         }
 
         if (Input.GetButton("Fire1") && water > 0)
@@ -95,24 +107,43 @@ public class PlayerProjectileRender : MonoBehaviour
     private void UseWaterAsJetpack()
     {
         firing = true;
-        SetProjectileVisuals(jetpackWidth, jetpackWidth); 
-        if (powerWasherAnimator != null) 
+        SetProjectileVisuals(jetpackWidth, jetpackWidth);
+        if (powerWasherAnimator != null)
         {
             powerWasherAnimator.SetBool("IsJetPacking", true);
-            powerWasherAnimator.SetBool("IsShooting", false); 
+            powerWasherAnimator.SetBool("IsShooting", false);
         }
 
         mousePosition = Input.mousePosition;
-        mousePosition.z = Camera.main.WorldToScreenPoint(transform.position).z;
+        mousePosition.z = 10;  
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+        Vector2 direction2D = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y).normalized;
+        Vector2 forceToAdd = -direction2D * jetpackForce;
 
-        Vector3 direction = (new Vector3(mousePosition.x, mousePosition.y, transform.position.z) - transform.position).normalized;
-        characterRigidbody.AddForce(-direction * jetpackForce, ForceMode2D.Impulse);
+        
+        Vector2 currentVelocity = characterRigidbody.velocity;
+        Vector2 newVelocity = new Vector2(currentVelocity.x + forceToAdd.x, currentVelocity.y + forceToAdd.y);
+        
 
-        ShootProjectile(jetpackDistance); 
+        characterRigidbody.velocity = newVelocity;
+        jetpackForceX = forceToAdd.x * 5;
 
-        if (powerWasherAnimator != null) 
+        float horizontalInput = Input.GetAxis("Horizontal");
+        if (horizontalInput < 0)
+        {
+            jetpackForceX = jetpackForceX*(-1); 
+        }
+
+        PlayerKnockback playerKnockBack = character.GetComponentInParent<PlayerKnockback>();
+        if (playerKnockBack != null)
+        {
+            playerKnockBack.AddExternalForceX(jetpackForceX);
+        }
+
+        ShootProjectile(jetpackDistance);
+
+        if (powerWasherAnimator != null)
         {
             powerWasherAnimator.SetBool("IsJetPacking", true);
         }
@@ -120,6 +151,7 @@ public class PlayerProjectileRender : MonoBehaviour
         water -= 4;
         refillTimeout = 300;
         if (water <= 0 && powerWasherAnimator != null) powerWasherAnimator.SetBool("IsJetPacking", false);
+        Debug.Log("Direction: " + direction2D + ", Force Applied: " + forceToAdd);
     }
 
 
