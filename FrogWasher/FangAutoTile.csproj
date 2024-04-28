@@ -59,13 +59,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\Legacy\FangAutoTile.cs" />
-    <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\FangAutoTilePacker.cs" />
     <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\FangOverrideTile.cs" />
-    <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\AssemblyInfo.cs" />
-    <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\Legacy\FangAutoTilePattern.cs" />
     <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\FangAutoTile.cs" />
     <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\FangConnectorTile.cs" />
+    <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\Legacy\FangAutoTile.cs" />
+    <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\FangAutoTilePacker.cs" />
+    <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\AssemblyInfo.cs" />
+    <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\Legacy\FangAutoTilePattern.cs" />
     <Compile Include="Packages\com.ruccho.fang-auto-tile\Runtime\IFangAutoTile.cs" />
   </ItemGroup>
   <ItemGroup>
