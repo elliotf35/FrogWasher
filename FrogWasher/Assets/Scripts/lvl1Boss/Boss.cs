@@ -16,8 +16,9 @@ public class Boss : MonoBehaviour {
     private Transform playerTransform;
     private bool introStarted = false;
     public GameObject player;
-        public AudioClip bossMusicClip; 
+    public AudioClip bossMusicClip; 
     private AudioSource bossMusicSource;  
+    public AudioSource preBossMusicSource;
 
     private void Start()
     {
@@ -28,15 +29,22 @@ public class Boss : MonoBehaviour {
         bossMusicSource.clip = bossMusicClip;  
         bossMusicSource.loop = true;  
         bossMusicSource.volume = 0.04f; 
+
+        GameObject preBossMusicObject = GameObject.Find("Background preboss");
+        if (preBossMusicObject != null)
+        {
+            preBossMusicSource = preBossMusicObject.GetComponent<AudioSource>();
+        }
         }
 
     private void Update()
     {
-        if (!introStarted && playerTransform.position.x > 24)
+        if (!introStarted && health < 2000)
         {
             anim.SetTrigger("startIntro"); 
             introStarted = true;  
             bossHealthUI.SetActive(true);
+            preBossMusicSource.Stop();
             bossMusicSource.Play(); 
         }
 

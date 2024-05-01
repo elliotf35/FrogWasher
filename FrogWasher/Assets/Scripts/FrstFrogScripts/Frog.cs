@@ -13,7 +13,7 @@ public class Frog : MonoBehaviour
     public GameObject pwt;
     public Rigidbody2D rb;
     private float initialHealthBarWidth;
-    private bool initialWidthSet = false; // Flag to check if initial width has been set
+    private bool initialWidthSet = false; 
     private enemyPatrol patrolScript; 
     private Animator animator;
     public PlayerKnockback playerKnockback;
@@ -125,15 +125,14 @@ public class Frog : MonoBehaviour
             playerKnockback.IncreaseHealth(1);  // Call to increase health
         }
 
-        RemoveBoxCollider();
-        rb.gravityScale = 20;
-        rb.velocity = Vector2.zero;
-
         if (patrolScript != null)
         {
             patrolScript.canMove = false;
-            patrolScript.rb.velocity = Vector2.zero;
         }
+
+        RemoveBoxCollider();
+        rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
 
         StartCoroutine(DestroyAfterDelay(.8f)); // Delay destruction to show any death animations
     }

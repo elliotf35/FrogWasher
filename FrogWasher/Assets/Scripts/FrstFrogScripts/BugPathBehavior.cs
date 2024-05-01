@@ -10,14 +10,14 @@ public class enemyPatrolVertical : MonoBehaviour
     private Rigidbody2D rb;
     private Transform currentPoint;
     public float speed;
-    private float originalSpeed; // To store the original speed
+    private float originalSpeed; 
 
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointB.transform;
-        originalSpeed = speed; // Store the original speed at start
+        originalSpeed = speed; 
     }
 
     void Update()

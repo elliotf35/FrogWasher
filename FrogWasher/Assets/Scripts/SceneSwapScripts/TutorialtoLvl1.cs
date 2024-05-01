@@ -10,7 +10,7 @@ public class SceneTransition : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(TransitionToScene(2));
+            StartCoroutine(TransitionToScene(0));
         }
     }
 
