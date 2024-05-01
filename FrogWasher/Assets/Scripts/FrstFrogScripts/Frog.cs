@@ -64,11 +64,6 @@ public class Frog : MonoBehaviour
         else
         {
             Knockback(damageDirection);
-            // Ensure slowdown is clearly applied, consider adjusting the factor and duration.
-            if (patrolScript != null)
-            {
-                patrolScript.ApplySlow(0.5f, 2f); // Slows down to 50% of original speed for 2 seconds
-            }
         }
     }
 
@@ -76,7 +71,6 @@ public class Frog : MonoBehaviour
     private void ApplyDamageEffects(Vector2 damageDirection)
     {
         Knockback(damageDirection);
-        patrolScript?.ApplySlow(0.5f, 2f);  // Apply a slow of 50% for 2 seconds
     }
 
     private void Knockback(Vector2 damageDirection)

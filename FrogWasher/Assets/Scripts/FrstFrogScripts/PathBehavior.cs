@@ -63,21 +63,6 @@ public class enemyPatrol : MonoBehaviour
 
     }
 
-    public void ApplySlow(float slowFactor, float duration)
-    {
-        float targetSpeed = originalSpeed * slowFactor; // Calculate target speed
-        if (speed > targetSpeed)  // Only apply slow if it results in a lower speed than currently set
-            speed = targetSpeed;
-        
-        StartCoroutine(RestoreSpeed(duration));
-    }
-    
-    IEnumerator RestoreSpeed(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        speed = originalSpeed; // Restore the original speed
-    }
-
     private void flip()
     {
         originalDirection = !originalDirection;
