@@ -19,8 +19,7 @@ public class Frog : MonoBehaviour
     public PlayerKnockback playerKnockback;
 
     // Knockback variables
-    public float knockbackStrength = 5f;
-    public float knockbackDuration = 0.5f;
+    public float knockbackStrength = .01f;
     private bool canMove = true;
 
     void Start()
@@ -61,36 +60,15 @@ public class Frog : MonoBehaviour
         {
             DisableFrog();
         }
-        else
-        {
-            Knockback(damageDirection);
-        }
-    }
-
-
-    private void ApplyDamageEffects(Vector2 damageDirection)
-    {
-        Knockback(damageDirection);
     }
 
     private void Knockback(Vector2 damageDirection)
     {
         if (canMove)
         {
-            // Adjust the knockback strength based on current health to reduce as health decreases
-            float adjustedKnockbackStrength = knockbackStrength * (health / maxHealth);
-            Vector2 knockbackForce = -damageDirection.normalized * adjustedKnockbackStrength;
+            Vector2 knockbackForce = damageDirection.normalized * knockbackStrength;
             rb.AddForce(knockbackForce, ForceMode2D.Impulse);
         }
-    }
-
-
-    IEnumerator TempDisableMovement(float duration, float slowFactor)
-    {
-        var currentSpeed = patrolScript.speed;
-        patrolScript.speed *= slowFactor;
-        yield return new WaitForSeconds(duration);
-        patrolScript.speed = currentSpeed; // Restore the exact current speed, not the originalSpeed
     }
 
 

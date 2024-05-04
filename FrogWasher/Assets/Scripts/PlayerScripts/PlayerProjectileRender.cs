@@ -7,7 +7,7 @@ public class PlayerProjectileRender : MonoBehaviour
 {
     private readonly float width = .25f;
     private readonly float jetpackWidth = .5f; 
-    private float maxDistance = 4f; 
+    private float maxDistance = 3.7f; 
     private float jetpackDistance = 1f; 
 
     private LineRenderer lineRenderer;
