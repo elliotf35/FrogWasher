@@ -9,6 +9,7 @@ TagManager:
   - WaterRenderer
   - Boss
   - powerwashertip
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - Enemy
   - Player
-  - 
+  - Platform
   - 
   - 
   - 
@@ -45,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: MovingPlatform
+    uniqueID: 2181081785
     locked: 0

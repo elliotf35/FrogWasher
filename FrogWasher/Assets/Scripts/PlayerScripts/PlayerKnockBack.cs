@@ -39,6 +39,18 @@ public class PlayerKnockback : MonoBehaviour
 
             StartCoroutine(Invulnerability());
         }
+
+        Frog2 enemy2 = collision.gameObject.GetComponent<Frog2>();
+        if (enemy2 != null && canBeKnockedBack)
+        {
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            Vector2 forceDirection = new Vector2(knockbackDirection.x, verticalBoost).normalized;
+            rb.AddForce(forceDirection * knockbackStrength, ForceMode2D.Impulse);
+
+            ReduceHealth(2);  // Reduce health by 2 on each collision
+
+            StartCoroutine(Invulnerability());
+        }
     }
 
     public void AddExternalForceX(float force)
@@ -59,15 +71,8 @@ public class PlayerKnockback : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            HandleDefeat();  // Handle the player's defeat
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);  
         }
-    }
-
-
-    void HandleDefeat()
-    {
-        Debug.Log("Player Defeated - Restarting Game");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reloads the current scene
     }
 
     IEnumerator Invulnerability()

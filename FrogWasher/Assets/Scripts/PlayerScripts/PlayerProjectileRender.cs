@@ -179,6 +179,14 @@ public class PlayerProjectileRender : MonoBehaviour
                 frog.TakeDamage(5, damageDirection);
             }
 
+            Frog2 frog2 = hit.collider.GetComponent<Frog2>();
+            if (frog2 != null)
+            {
+                Debug.Log("Frog2 hit, dealing damage.");
+                Vector2 damageDirection = (hit.point - new Vector2(transform.position.x, transform.position.y)).normalized;
+                frog2.TakeDamage(5, damageDirection);
+            }
+
             Boss boss = hit.collider.GetComponent<Boss>();
             if (boss != null) 
             {

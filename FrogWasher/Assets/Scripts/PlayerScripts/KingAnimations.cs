@@ -7,12 +7,14 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private BoxCollider2D boxCollider;
     private float previousYPosition;
+    private bool isOnPlatform;  // To track whether the player is on a platform
 
     void Start()
     {
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();  // Get the BoxCollider2D component
         previousYPosition = boxCollider.bounds.center.y;  // Initialize with the y position of the collider
+        isOnPlatform = false;
     }
 
     void Update()
@@ -21,11 +23,9 @@ public class PlayerController : MonoBehaviour
         float currentYPosition = boxCollider.bounds.center.y;
         bool isMoving = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
 
-        // Check if the collider's y position is increasing (jumping)
-        bool isJumping = currentYPosition > previousYPosition && Mathf.Abs(boxCollider.bounds.center.y - previousYPosition) > 0.01f;
-
-        // Check if the collider's y position is decreasing (falling)
-        bool isFalling = currentYPosition < previousYPosition && Mathf.Abs(boxCollider.bounds.center.y - previousYPosition) > 0.01f;
+        // Check if the collider's y position is increasing (jumping) or decreasing (falling)
+        bool isJumping = !isOnPlatform && currentYPosition > previousYPosition && Mathf.Abs(currentYPosition - previousYPosition) > 0.01f;
+        bool isFalling = !isOnPlatform && currentYPosition < previousYPosition && Mathf.Abs(currentYPosition - previousYPosition) > 0.01f;
 
         // Prioritize vertical movements over horizontal movement
         if (isJumping || isFalling)
@@ -43,5 +43,21 @@ public class PlayerController : MonoBehaviour
 
         // Update previous position for the next frame
         previousYPosition = currentYPosition;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlatformCollider"))
+        {
+            isOnPlatform = true;  // Player is on the platform
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlatformCollider"))
+        {
+            isOnPlatform = false;  // Player has left the platform
+        }
     }
 }
