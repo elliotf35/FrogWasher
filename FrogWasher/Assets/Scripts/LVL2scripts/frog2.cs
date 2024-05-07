@@ -1,24 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections; 
+using System.Collections;
 
 public class Frog2 : MonoBehaviour
 {
     public float health = 250;
-    public GameObject healthBarPrefab; // Assign the health bar prefab in the inspector
-    private GameObject healthBar; // This will be the instantiated health bar
-    public Image healthBarForeground; // This will reference the foreground image of the instantiated prefab
+    public GameObject healthBarPrefab;
+    private GameObject healthBar;
+    public Image healthBarForeground;
     private float maxHealth = 250;
     private PlayerProjectileRender ppr;
     public GameObject pwt;
     public Rigidbody2D rb;
     private float initialHealthBarWidth;
-    private bool initialWidthSet = false; 
+    private bool initialWidthSet = false;
     private Animator animator;
     public PlayerKnockback playerKnockback;
-    [SerializeField] private Transform spawnerTransform; // Make it private or public based on your needs
+    [SerializeField] private Transform spawnerTransform;
 
-    // Knockback variables
     public float knockbackStrength = .01f;
     private bool canMove = true;
 
@@ -27,7 +26,6 @@ public class Frog2 : MonoBehaviour
         ppr = pwt.GetComponent<PlayerProjectileRender>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
         SetupHealthBar();
     }
 
@@ -42,7 +40,6 @@ public class Frog2 : MonoBehaviour
 
     void Update()
     {
-        // Set initial width on the first Update call after instantiation
         if (!initialWidthSet && healthBarForeground != null)
         {
             initialHealthBarWidth = healthBarForeground.rectTransform.sizeDelta.x;
@@ -54,62 +51,40 @@ public class Frog2 : MonoBehaviour
     {
         health -= damageAmount;
         UpdateHealthBar();
-
         if (health <= 0)
         {
             DisableFrog();
         }
     }
 
-    private void Knockback(Vector2 damageDirection)
-    {
-        if (canMove)
-        {
-            Vector2 knockbackForce = damageDirection.normalized * knockbackStrength;
-            rb.AddForce(knockbackForce, ForceMode2D.Impulse);
-        }
-    }
-
-
     private void UpdateHealthBar()
     {
         if (healthBarForeground != null)
         {
-            if (health > maxHealth) {
-                health = maxHealth;
-            }
-
             float healthRatio = Mathf.Clamp(health / maxHealth, 0f, 1f);
-            healthBarForeground.rectTransform.sizeDelta = new Vector2(initialHealthBarWidth * healthRatio, healthBarForeground.rectTransform.sizeDelta.y);;
+            healthBarForeground.rectTransform.sizeDelta = new Vector2(initialHealthBarWidth * healthRatio, healthBarForeground.rectTransform.sizeDelta.y);
         }
     }
 
     private void DisableFrog()
     {
-        if (animator != null)
-        {
-            animator.SetBool("IsDying", true);  
-        }
-
+        animator.SetBool("IsDying", true);
         if (playerKnockback != null)
         {
-            playerKnockback.IncreaseHealth(1);  
+            playerKnockback.IncreaseHealth(1);
         }
-
+        initializationsettings2.Instance.IncrementFrogCount(); 
         RemoveBoxCollider();
-
-        StartCoroutine(RespawnafterDelay(.8f));
+        StartCoroutine(RespawnafterDelay(0.8f));
     }
 
-
-    private System.Collections.IEnumerator RespawnafterDelay(float delay)
+    private IEnumerator RespawnafterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         if (spawnerTransform != null)
         {
             transform.position = spawnerTransform.position;
         }
-        transform.position = spawnerTransform.position;
         health = maxHealth;
         animator.SetBool("IsDying", false);
         RestoreBoxCollider();
@@ -133,5 +108,4 @@ public class Frog2 : MonoBehaviour
             collider.enabled = true;
         }
     }
-    
 }

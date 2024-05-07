@@ -74,6 +74,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\lvl1Boss\JumpBehavior.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scripts\LVL2scripts\lvl2gamemanagement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\PauseMenue\PauseButton.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\Scripts\LVL1Scripts\FrstFrogScripts\PathBehavior.cs" />
     <Compile Include="Assets\Scripts\LVL2scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\lvl1Boss\DeathBehavior.cs" />
+    <Compile Include="Assets\Scripts\SceneSwapScripts\Lvl2boss.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\mouse.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Assets\Scripts\LVL2scripts\groundPathEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\LVL2scripts\Boss2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\lvl1Boss\BossSoundEffects.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />

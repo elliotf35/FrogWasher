@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    private float fallDelay = 1f;
-    private float reappearDelay = 10f; // Time after which the platform reappears
+    private float fallDelay = 2f;
+    private float reappearDelay = 7f; // Time after which the platform reappears
 
     [SerializeField] private Rigidbody2D rb;
 
