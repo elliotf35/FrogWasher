@@ -20,6 +20,8 @@ public class Boss : MonoBehaviour {
     private AudioSource bossMusicSource;  
     public AudioSource preBossMusicSource;
 
+    public GameObject sceneTransitionObject;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -53,10 +55,10 @@ public class Boss : MonoBehaviour {
         }
 
         if (health <= 0) {
-            isDead = true;
             anim.SetTrigger("death");
             bossHealthUI.SetActive(false);
             StartCoroutine(FadeOutMusic(10.0f)); 
+            ActivateSceneTransition();
         }
 
         if (timeBtwDamage > 0) {
@@ -145,6 +147,14 @@ public class Boss : MonoBehaviour {
 
         bossMusicSource.Stop();
         bossMusicSource.volume = startVolume; 
+    }
+
+    private void ActivateSceneTransition()
+    {
+        if (sceneTransitionObject != null)
+        {
+            sceneTransitionObject.SetActive(true);
+        }
     }
 
 }

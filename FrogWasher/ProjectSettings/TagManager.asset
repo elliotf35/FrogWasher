@@ -50,3 +50,6 @@ TagManager:
   - name: MovingPlatform
     uniqueID: 2181081785
     locked: 0
+  - name: Effects
+    uniqueID: 2204168659
+    locked: 0
