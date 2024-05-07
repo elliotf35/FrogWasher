@@ -19,12 +19,20 @@ public class PlayerProjectileRender : MonoBehaviour
     public int maxWater = 1000;
     public int water;
     public int refillTimeout = 0;
+
+    private int refillTimeoutMax = 200;
     public Vector2 secondPoint;
     public bool firing;
     private Animator powerWasherAnimator;
     public WaterBar waterBar;
-    public float jetpackForce = 10f; 
+    private float jetpackForce = 0.5f; 
+
+    
     public float jetpackForceX = 0;
+
+    public float velocityCap = 10f;
+    public float vX = 0;
+    public float vY = 0;
     public Transform king;
 
     void Start()
@@ -123,8 +131,7 @@ public class PlayerProjectileRender : MonoBehaviour
 
         
         Vector2 currentVelocity = characterRigidbody.velocity;
-        Vector2 newVelocity = new Vector2(currentVelocity.x + forceToAdd.x, currentVelocity.y + forceToAdd.y);
-        
+        Vector2 newVelocity = new Vector2(currentVelocity.x + forceToAdd.x, Mathf.Min(currentVelocity.y + forceToAdd.y, velocityCap));
 
         characterRigidbody.velocity = newVelocity;
         jetpackForceX = forceToAdd.x * 5;
@@ -149,7 +156,7 @@ public class PlayerProjectileRender : MonoBehaviour
         }
 
         water -= 4;
-        refillTimeout = 300;
+        refillTimeout = refillTimeoutMax;
         if (water <= 0 && powerWasherAnimator != null) powerWasherAnimator.SetBool("IsJetPacking", false);
         Debug.Log("Direction: " + direction2D + ", Force Applied: " + forceToAdd);
     }
@@ -192,7 +199,7 @@ public class PlayerProjectileRender : MonoBehaviour
             lineRenderer.SetPosition(1, transform.position + direction * distance);
         }
         water-= 2;
-        refillTimeout = 300;
+        refillTimeout = refillTimeoutMax;
     }
 
 
