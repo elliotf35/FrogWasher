@@ -23,8 +23,10 @@ public class PlayerProjectileRender : MonoBehaviour
     public bool firing;
     private Animator powerWasherAnimator;
     public WaterBar waterBar;
-    public float jetpackForce = 10f; 
+    public float jetpackForce = 10f;
     public float jetpackForceX = 0;
+
+    private float velocityCap = 10f;
     public Transform king;
 
     void Start()
@@ -123,7 +125,7 @@ public class PlayerProjectileRender : MonoBehaviour
 
         
         Vector2 currentVelocity = characterRigidbody.velocity;
-        Vector2 newVelocity = new Vector2(currentVelocity.x + forceToAdd.x, currentVelocity.y + forceToAdd.y);
+        Vector2 newVelocity = new Vector2(currentVelocity.x + forceToAdd.x, Mathf.Min(currentVelocity.y + forceToAdd.y, velocityCap));
         
 
         characterRigidbody.velocity = newVelocity;

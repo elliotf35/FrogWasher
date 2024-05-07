@@ -23,7 +23,7 @@ public class WeaponFollow : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // Determine the weapon's orientation and offset based on the mouse position
-        if (mousePosition.x < target.position.x) // Mouse is left of the character
+        if (target.rotation.y == 1) // Mouse is left of the character
         {
             // Adjust the weapon to mirror vertically and flip the xOffset
             transform.rotation = Quaternion.Euler(180, 0, -angle);

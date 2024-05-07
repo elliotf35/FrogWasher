@@ -1,0 +1,106 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {
+      "FangAutoTile/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/FangAutoTile.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FangAutoTile.dll": {}
+        }
+      },
+      "FangAutoTile.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "FangAutoTile": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FangAutoTile.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FangAutoTile.Editor.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FangAutoTile/1.0.0": {
+      "type": "project",
+      "path": "FangAutoTile.csproj",
+      "msbuildProject": "FangAutoTile.csproj"
+    },
+    "FangAutoTile.Editor/1.0.0": {
+      "type": "project",
+      "path": "FangAutoTile.Editor.csproj",
+      "msbuildProject": "FangAutoTile.Editor.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": [
+      "FangAutoTile >= 1.0.0",
+      "FangAutoTile.Editor >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/elliot/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/elliot/Documents/GitHub/FrogWasher/FrogWasher/Assembly-CSharp.csproj",
+      "projectName": "Assembly-CSharp",
+      "projectPath": "/Users/elliot/Documents/GitHub/FrogWasher/FrogWasher/Assembly-CSharp.csproj",
+      "packagesPath": "/Users/elliot/.nuget/packages/",
+      "outputPath": "/Users/elliot/Documents/GitHub/FrogWasher/FrogWasher/Temp/obj/Debug/Assembly-CSharp/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/elliot/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "projectReferences": {
+            "/Users/elliot/Documents/GitHub/FrogWasher/FrogWasher/FangAutoTile.csproj": {
+              "projectPath": "/Users/elliot/Documents/GitHub/FrogWasher/FrogWasher/FangAutoTile.csproj"
+            },
+            "/Users/elliot/Documents/GitHub/FrogWasher/FrogWasher/FangAutoTile.Editor.csproj": {
+              "projectPath": "/Users/elliot/Documents/GitHub/FrogWasher/FrogWasher/FangAutoTile.Editor.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
