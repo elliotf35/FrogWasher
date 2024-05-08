@@ -51,6 +51,18 @@ public class PlayerKnockback : MonoBehaviour
 
             StartCoroutine(Invulnerability());
         }
+
+        minion Minion = collision.gameObject.GetComponent<minion>();
+        if (Minion != null && canBeKnockedBack)
+        {
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            Vector2 forceDirection = new Vector2(knockbackDirection.x, verticalBoost).normalized;
+            rb.AddForce(forceDirection * knockbackStrength, ForceMode2D.Impulse);
+
+            ReduceHealth(2);  // Reduce health by 2 on each collision
+
+            StartCoroutine(Invulnerability());
+        }
     }
 
     public void AddExternalForceX(float force)

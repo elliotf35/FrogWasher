@@ -84,6 +84,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\KingAnimations.cs" />
+    <Compile Include="Assets\Scripts\LVL2scripts\Boss\minion.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\FrstFrogScripts\PathBehavior.cs" />
     <Compile Include="Assets\Scripts\LVL2scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\lvl1Boss\DeathBehavior.cs" />
@@ -115,12 +116,13 @@
     <Compile Include="Assets\Scripts\LVL2scripts\EnemyTracking.cs" />
     <Compile Include="Assets\Scripts\LVL2scripts\groundPathEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Scripts\LVL2scripts\Boss\Boss2.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\LVL2scripts\Boss2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\lvl1Boss\BossSoundEffects.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\Scripts\LVL2scripts\Boss\BossPath.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\LVL2scripts\Lightning.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\lvl1Boss\IdleBehavior.cs" />
