@@ -15,11 +15,14 @@ public class Boss2 : MonoBehaviour
     public GameObject backgroundMusic;
     public GameObject bossMusic;
 
+     public GameObject[] minions;
+
+    private bool stageTwoTriggered = false;  // To ensure stage two is triggered only once
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        BossPath = GetComponent<BossPath>();  // Get the ChasingEnemy script component
+        BossPath = GetComponent<BossPath>();  
         BossPath.enabled = false;  // Ensure the script is disabled at start
         bossMusic.SetActive(false);
     }
@@ -30,6 +33,14 @@ public class Boss2 : MonoBehaviour
             bossHealthUI.SetActive(false);
             bossMusic.SetActive(false);
             backgroundMusic.SetActive(true);
+        }
+
+        if (health <= 1500 && !stageTwoTriggered) {
+            DisableMinions();
+            stageTwoTriggered = true;
+            animator.SetTrigger("StartIntro2");
+            animator.SetBool("StageTwo", true);
+            BossPath.StopActivatingMinions();
         }
 
         healthBar.value = health;
@@ -49,9 +60,9 @@ public class Boss2 : MonoBehaviour
     public void EnableFlying()
     {
         animator.SetBool("IsFlying", true);
-        if (BossPath!= null)
+        if (BossPath != null)
         {
-           BossPath.enabled = true;  
+            BossPath.enabled = true;  
         }
     }
 
@@ -72,5 +83,14 @@ public class Boss2 : MonoBehaviour
     private void SwitchMusic(){
         backgroundMusic.SetActive(false);
         bossMusic.SetActive(true);
+    }
+
+    private void DisableMinions()
+    {
+        foreach (GameObject minion in minions)
+        {
+            Destroy(minion);  
+        }
+        minions = new GameObject[0];
     }
 }

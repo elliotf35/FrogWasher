@@ -11,6 +11,8 @@ public class BossPath : MonoBehaviour
     private float minSpeed = 0.1f; // Minimum speed to avoid the platform stopping completely before it reaches the point
     public GameObject[] minions; // Array to hold references to the minion GameObjects
 
+    public bool canActivateMinions = true;
+
     void Start()
     {
         transform.position = points[startingPoint].position;
@@ -23,11 +25,14 @@ public class BossPath : MonoBehaviour
         float distance = Vector2.Distance(transform.position, points[i].position);
         if (distance < 0.02f)
         {
-            ActivateMinion(i);  // Activate minion corresponding to the current point
-            i++;  // Move to the next point
-            if (i >= points.Length)  // Check if 'i' has exceeded the bounds of the array
+            if (canActivateMinions)
             {
-                i = 0;  // Reset 'i' to the beginning
+                ActivateMinion(i);
+            }
+            i++;
+            if (i >= points.Length)
+            {
+                i = 0;
             }
         }
 
@@ -42,16 +47,21 @@ public class BossPath : MonoBehaviour
     {
         foreach (GameObject minion in minions)
         {
-            minion.SetActive(false);  // Deactivate all minions at the start
+            minion.SetActive(false);
         }
     }
 
     private void ActivateMinion(int index)
     {
-    if (index < minions.Length && !minions[index].activeSelf)
-    {
-        minions[index].transform.position = transform.position; // Set the minion's position to the boss's current position
-        minions[index].SetActive(true);  // Activate the minion
+        if (index < minions.Length && !minions[index].activeSelf)
+        {
+            minions[index].transform.position = transform.position;
+            minions[index].SetActive(true);
+        }
     }
+
+    public void StopActivatingMinions()
+    {
+        canActivateMinions = false;
     }
 }
