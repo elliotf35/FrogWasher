@@ -8,11 +8,11 @@ public class initializationsettings : MonoBehaviour
     {
         if (FindObjectsOfType<initializationsettings>().Length > 1)
         {
-            Destroy(gameObject);  // Destroys the current object if another one exists
+            Destroy(gameObject); 
         }
         else
         {
-            DontDestroyOnLoad(gameObject);  // Keeps the original GameObject alive across scenes
+            DontDestroyOnLoad(gameObject);  
         }
     }
 
@@ -20,8 +20,4 @@ public class initializationsettings : MonoBehaviour
         Application.targetFrameRate = 100;
     }
 
-    void Update()
-    {
-        // This function can remain empty if not needed
-    }
 }

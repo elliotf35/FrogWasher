@@ -104,6 +104,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerProjectileRender.cs" />
+    <Compile Include="Assets\Scripts\LVL2scripts\Boss\LightningActivation.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PowerWasherOffset.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Assets\Scripts\LVL2scripts\Boss\Boss2.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Scripts\SceneSwapScripts\ending.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\lvl1Boss\BossSoundEffects.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />

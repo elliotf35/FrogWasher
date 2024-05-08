@@ -10,6 +10,8 @@ public class BossPath : MonoBehaviour
     private int i;
     private float minSpeed = 0.1f; // Minimum speed to avoid the platform stopping completely before it reaches the point
     public GameObject[] minions; // Array to hold references to the minion GameObjects
+    public GameObject[] superMinions; 
+    public bool canActivateSuperMinions = false;
 
     public bool canActivateMinions = true;
 
@@ -28,6 +30,11 @@ public class BossPath : MonoBehaviour
             if (canActivateMinions)
             {
                 ActivateMinion(i);
+            }
+
+            if (canActivateSuperMinions)
+            {
+                ActivateSuperMinion(i); 
             }
             i++;
             if (i >= points.Length)
@@ -60,8 +67,22 @@ public class BossPath : MonoBehaviour
         }
     }
 
+    private void ActivateSuperMinion(int index)
+    {
+        if (index < superMinions.Length && !superMinions[index].activeSelf)
+        {
+            superMinions[index].transform.position = transform.position;
+            superMinions[index].SetActive(true);
+        }
+    }
+
     public void StopActivatingMinions()
     {
         canActivateMinions = false;
+    }
+
+    public void StopActivatingSuperMinions()
+    {
+        canActivateSuperMinions = false;
     }
 }

@@ -6,24 +6,33 @@ public class PlayerKnockback : MonoBehaviour
 {
     public float knockbackStrength = 10f;
     public float verticalBoost = 1f;
-    public float immunityDuration = 1f;  // Duration of immunity and non-collision
-    public int maxHealth = 6;            // Maximum health points
-    private int currentHealth;           // Current health points
-    private Rigidbody2D rb;
+    public float immunityDuration = 1f;  
+    public int maxHealth = 6;            
+    private int currentHealth;           
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private bool canBeKnockedBack = true;  // Flag to control knockback application
+    private bool canBeKnockedBack = true;  
     public HealthDisplay healthDisplay;
     public AudioSource audioSource;
     public AudioClip hitSound;
     public float externalForceX;
+    private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        currentHealth = maxHealth;  // Initialize health
+        currentHealth = maxHealth;  
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Lightning") && canBeKnockedBack)
+        {
+            ReduceHealth(1);  
+            StartCoroutine(Invulnerability());  
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -35,7 +44,7 @@ public class PlayerKnockback : MonoBehaviour
             Vector2 forceDirection = new Vector2(knockbackDirection.x, verticalBoost).normalized;
             rb.AddForce(forceDirection * knockbackStrength, ForceMode2D.Impulse);
 
-            ReduceHealth(2);  // Reduce health by 2 on each collision
+            ReduceHealth(2);  
 
             StartCoroutine(Invulnerability());
         }
@@ -47,7 +56,7 @@ public class PlayerKnockback : MonoBehaviour
             Vector2 forceDirection = new Vector2(knockbackDirection.x, verticalBoost).normalized;
             rb.AddForce(forceDirection * knockbackStrength, ForceMode2D.Impulse);
 
-            ReduceHealth(2);  // Reduce health by 2 on each collision
+            ReduceHealth(2);  
 
             StartCoroutine(Invulnerability());
         }
@@ -59,7 +68,7 @@ public class PlayerKnockback : MonoBehaviour
             Vector2 forceDirection = new Vector2(knockbackDirection.x, verticalBoost).normalized;
             rb.AddForce(forceDirection * knockbackStrength, ForceMode2D.Impulse);
 
-            ReduceHealth(2);  // Reduce health by 2 on each collision
+            ReduceHealth(2); 
 
             StartCoroutine(Invulnerability());
         }
@@ -72,10 +81,12 @@ public class PlayerKnockback : MonoBehaviour
 
     public void ReduceHealth(int damage)
     {
+        if (!canBeKnockedBack) return;
+
         currentHealth -= damage;
         healthDisplay.UpdateHealth(currentHealth);
 
-        // Play hit sound
+  
         if (hitSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(hitSound);
@@ -89,9 +100,9 @@ public class PlayerKnockback : MonoBehaviour
 
     IEnumerator Invulnerability()
     {
-        canBeKnockedBack = false;  // Disable knockback
+        canBeKnockedBack = false; 
         animator.SetBool("isHurt", true);
-        yield return new WaitForSeconds(.1f);  // Just enough time for the animation to trigger
+        yield return new WaitForSeconds(.1f);  
         animator.SetBool("isHurt", false);
 
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
@@ -100,14 +111,14 @@ public class PlayerKnockback : MonoBehaviour
         yield return new WaitForSeconds(immunityDuration);
 
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
-        canBeKnockedBack = true;  // Re-enable knockback
-        spriteRenderer.enabled = true; // Ensure sprite is visible after blinking
+        canBeKnockedBack = true;  
+        spriteRenderer.enabled = true; 
     }
     public void IncreaseHealth(int amount)
     {
         currentHealth += amount;
-        currentHealth = Mathf.Min(currentHealth, maxHealth); // Ensure health does not exceed maximum
-        healthDisplay.UpdateHealth(currentHealth); // Update the UI
+        currentHealth = Mathf.Min(currentHealth, maxHealth); 
+        healthDisplay.UpdateHealth(currentHealth); 
     }
 
     IEnumerator BlinkEffect(float duration)
@@ -118,7 +129,7 @@ public class PlayerKnockback : MonoBehaviour
             spriteRenderer.enabled = !spriteRenderer.enabled;
             yield return new WaitForSeconds(.1f);
         }
-        spriteRenderer.enabled = true; // Ensure sprite is visible after blinking
+        spriteRenderer.enabled = true; 
     }
 
 }

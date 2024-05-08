@@ -6,35 +6,31 @@ public class initializationsettings2 : MonoBehaviour
     public static initializationsettings2 Instance; 
     public int totalFrogsDefeated = 0; 
     public Text respawnCounterText; 
-    public GameObject door; // Reference to the door GameObject
-    private BoxCollider2D doorCollider;
-    private SpriteRenderer doorSpriteRenderer;
+    public GameObject fakeDoor; // Reference to the non-collidable door GameObject
+    public GameObject realDoor; 
     private bool doorOpened = false;
+
 
     void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); 
+            Destroy(gameObject); // Destroy duplicate instances
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject); 
+        // DontDestroyOnLoad(gameObject); // Removed to allow the object to be destroyed on scene load
     }
-
     void Start()
     {
         // Ensure door references are properly set up
-        if (door != null)
-        {
-            doorCollider = door.GetComponent<BoxCollider2D>();
-            doorSpriteRenderer = door.GetComponent<SpriteRenderer>();
-            // Initial setup for disabled door
-            if (doorCollider != null)
-                doorCollider.enabled = false;
-            if (doorSpriteRenderer != null)
-                doorSpriteRenderer.color = new Color(1, 1, 1, .6f); // Transparent initially
-        }
+        if (fakeDoor != null)
+            fakeDoor.SetActive(true); // Show the fake door initially
+        if (realDoor != null)
+            realDoor.SetActive(false); // Hide the real door initially
+
+        Application.targetFrameRate = 100;
+
     }
 
     public void IncrementFrogCount()
@@ -59,11 +55,10 @@ public class initializationsettings2 : MonoBehaviour
 
     private void OpenDoor()
     {
-        if (doorCollider != null)
-            doorCollider.enabled = true; // Activate the door collider
-
-        if (doorSpriteRenderer != null)
-            doorSpriteRenderer.color = new Color(1, 1, 1, 1); // Set alpha to 1
+        if (fakeDoor != null)
+            fakeDoor.SetActive(false); // Deactivate the fake door
+        if (realDoor != null)
+            realDoor.SetActive(true); // Activate the real door
 
         doorOpened = true; // Prevent reopening the door again
     }

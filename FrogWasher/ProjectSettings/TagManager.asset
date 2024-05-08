@@ -10,6 +10,8 @@ TagManager:
   - Boss
   - powerwashertip
   - Enemy
+  - Lightning
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Enemy
   - Player
   - Platform
-  - 
+  - Door
   - 
   - 
   - 
