@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.cs text eol=crlf
+*.unity text eol=crlf
+*.prefab text eol=crlf
+*.mp3 binary
