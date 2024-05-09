@@ -70,10 +70,6 @@ public class minion : MonoBehaviour
     private void DisableFrog()
     {
         animator.SetBool("IsDying", true);
-        if (playerKnockback != null)
-        {
-            playerKnockback.IncreaseHealth(1);
-        }
         RemoveBoxCollider();
         StartCoroutine(RespawnafterDelay(UnityEngine.Random.Range(2f, 6f)));
         if (boss != null)

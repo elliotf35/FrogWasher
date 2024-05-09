@@ -14,40 +14,58 @@ public class BossPath : MonoBehaviour
     public bool canActivateSuperMinions = false;
 
     public bool canActivateMinions = true;
+    private bool shouldMoveToStart = true;
 
     void Start()
     {
-        transform.position = points[startingPoint].position;
+    
         i = startingPoint;  // Ensure 'i' starts at 'startingPoint'
         InitializeMinions();  // Initially deactivate all minions
+        StartCoroutine(MoveToStartPoint(points[startingPoint].position));
     }
 
     void Update()
     {
         float distance = Vector2.Distance(transform.position, points[i].position);
-        if (distance < 0.02f)
+        if (!shouldMoveToStart)
         {
-            if (canActivateMinions)
+            if (distance < 0.02f)
             {
-                ActivateMinion(i);
-            }
+                if (canActivateMinions)
+                {
+                    ActivateMinion(i);
+                }
 
-            if (canActivateSuperMinions)
-            {
-                ActivateSuperMinion(i); 
-            }
-            i++;
-            if (i >= points.Length)
-            {
-                i = 0;
+                if (canActivateSuperMinions)
+                {
+                    ActivateSuperMinion(i);
+                }
+                i++;
+                if (i >= points.Length)
+                {
+                    i = 0;  // Loop back to the start of the array
+                }
             }
         }
 
         // Calculate the dynamic speed based on the distance
-        float speed = Mathf.Lerp(minSpeed, maxSpeed, distance / 0.5f); // Adjust the denominator to control the 'ease out' effect
-        speed = Mathf.Clamp(speed, minSpeed, maxSpeed); // Ensure speed does not drop below minSpeed or exceed maxSpeed
+        if (!shouldMoveToStart) // Ensure this runs only when boss is moving between points
+        {
+            float speed = Mathf.Lerp(minSpeed, maxSpeed, distance / 0.5f); // Adjust the denominator to control the 'ease out' effect
+            speed = Mathf.Clamp(speed, minSpeed, maxSpeed); // Ensure speed does not drop below minSpeed or exceed maxSpeed
 
-        transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+        }
+    }
+
+    IEnumerator MoveToStartPoint(Vector3 startPosition)
+    {
+        while (Vector3.Distance(transform.position, startPosition) > 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startPosition, maxSpeed * Time.deltaTime);
+            yield return null;
+        }
+        shouldMoveToStart = false;  // Stop the initial movement and start regular pathing
     }
 
     private void InitializeMinions()
