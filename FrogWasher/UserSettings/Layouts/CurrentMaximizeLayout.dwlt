@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 218
     height: 572
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -236,9 +236,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4eecfdff
-      m_LastClickedID: -136114
-      m_ExpandedIDs: 4e17feffa21bfeff781cfefff026fefff226feffb240feffbe43feff34beffff20e5ffff28e5fffff6e5fffffee5ffffece8ffffd6ebfffffaf6ffff04faffff9c8d0000bc070200
+      m_SelectedIDs: ae180000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 0cacfeff1eb0fefff0b9feffa0bafeff90c2feffa0ccfeffc8cefeff18d2feffbad3feff4cd4feffe0d9feff16dffeff18e9feff3eebfeff8aeefeff0cf0feff8cf0feff52f7feff9802ffff7a05ffffb009ffff5212ffff0213fffff21affff0225ffff2a27ffff7a2affff1c2cffffae2cffff822effffb833ffffba3dffffe03fffff2c43ffffae44ffff2e45ffff8651ffff3252ffff225affff3264ffff5a66ffffaa69ffff4c6bffffde6bffffb26dffffe872ffffea7cffff107fffff5c82ffffde83ffff5e84ffffc28efffff293ffffee9dffff0ea0ffff54a3ffffd0a4ffff4aa5fffffab0ffffa6b1ffff98b9ffffa8c3ffffd0c5ffff20c9ffffc2caffff54cbffff2ccdffff62d2ffff64dcffff8adeffffd6e1ffff58e3ffffd8e3fffff4edffff40efffff1cf6ffff04fafffff8fd000034680100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -532,9 +532,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 751cc89557397214da402c6b9aa5fbe2, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 1127edcfb286f42f4a40d6b63b39f79c, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -2576710008633263254, guid: 751cc89557397214da402c6b9aa5fbe2, type: 2}
+  - m_Target: {fileID: -2861290502405363236, guid: 1127edcfb286f42f4a40d6b63b39f79c, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -929,9 +929,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 88.82858, y: -6.9103227, z: -0.079566576}
+    m_Target: {x: -1.6727724, y: -9.95567, z: 0.4571765}
     speed: 2
-    m_Value: {x: 88.82858, y: -6.9103227, z: -0.079566576}
+    m_Value: {x: -1.6727724, y: -9.95567, z: 0.4571765}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -981,9 +981,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.915013
+    m_Target: 13.925802
     speed: 2
-    m_Value: 9.915013
+    m_Value: 13.925802
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1081,7 +1081,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Menu
+    - Assets/Scripts/LVL2scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1089,16 +1089,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/Menu
+  - Assets/Scripts/LVL2scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Nicho\OneDrive\Documents\GitHub\FrogWasher\FrogWasher
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 28}
-    m_SelectedIDs: b4940000
-    m_LastClickedID: 38068
-    m_ExpandedIDs: 000000004c7d00004e7d000030840000c662010000ca9a3bffffff7f
+    m_SelectedIDs: c6800000
+    m_LastClickedID: 32966
+    m_ExpandedIDs: 00000000c6800000c8800000ca8000004a86000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1126,7 +1126,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004c7d00004e7d0000c662010000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000c6800000c8800000ca80000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1151,8 +1151,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 4eecfdff
-    m_LastClickedInstanceID: -136114
+    m_SelectedInstanceIDs: ae180000
+    m_LastClickedInstanceID: 6318
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000d0820000787a0000a48100003482000062c6000050810000e6a4000082780000869700007c7d0000148c0000220f0100d65c03008cb005002ad70000b0d70000c6860200a89f0200c09f0200ac9f0200d075030008760300c28a03007c810000a0ae000004c60000
     m_RenameOverlay:
@@ -1251,7 +1251,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   _data:
-    _json: '{"locked":false,"graphInspectorEnabled":true,"variablesInspectorEnabled":true,"isActive":false,"referenceData":{"rootObjectInstanceID":-125396,"parentElementGuids":[]},"sidebars":{"left":{"size":335.0,"scroll":{"x":0.0,"y":0.0}},"right":{"size":300.0,"scroll":{"x":0.0,"y":0.0}},"panels":[{"height":200.0,"anchor":"Left","order":0,"controlHint":{"$content":"Unity.VisualScripting.GraphInspectorPanel","$type":"System.RuntimeType"},"scroll":{"x":0.0,"y":0.0}},{"height":200.0,"anchor":"Left","order":0,"controlHint":{"$content":"Unity.VisualScripting.VariablesPanel","$type":"System.RuntimeType"},"scroll":{"x":0.0,"y":0.0}}]},"reliablePosition":{"xMin":0.0,"yMin":685.0,"xMax":1386.0,"yMax":999.0},"saveChangesMessage":"Unity.VisualScripting.GraphWindow
+    _json: '{"locked":false,"graphInspectorEnabled":true,"variablesInspectorEnabled":true,"isActive":false,"referenceData":{"rootObjectInstanceID":92314,"parentElementGuids":[]},"sidebars":{"left":{"size":335.0,"scroll":{"x":0.0,"y":0.0}},"right":{"size":300.0,"scroll":{"x":0.0,"y":0.0}},"panels":[{"height":200.0,"anchor":"Left","order":0,"controlHint":{"$content":"Unity.VisualScripting.GraphInspectorPanel","$type":"System.RuntimeType"},"scroll":{"x":0.0,"y":0.0}},{"height":200.0,"anchor":"Left","order":0,"controlHint":{"$content":"Unity.VisualScripting.VariablesPanel","$type":"System.RuntimeType"},"scroll":{"x":0.0,"y":0.0}}]},"reliablePosition":{"xMin":0.0,"yMin":685.0,"xMax":1386.0,"yMax":999.0},"saveChangesMessage":"Unity.VisualScripting.GraphWindow
       has unsaved changes.","m_MinSize":{"x":100.0,"y":100.0},"m_MaxSize":{"x":4000.0,"y":4000.0},"m_TitleContent":{"m_Text":"Script
       Graph","m_Image":null,"m_Tooltip":""},"m_Pos":{"xMin":0.0,"yMin":685.0,"xMax":1386.0,"yMax":999.0},"m_SerializedDataModeController":{"m_DataMode":"Disabled","m_PreferredDataMode":"Disabled","m_SupportedDataModes":[],"isAutomatic":true},"m_ViewDataDictionary":null,"m_OverlayCanvas":{"m_LastAppliedPresetName":"Default","m_SaveData":[],"m_OverlaysVisible":true}}'
     _objectReferences: []
