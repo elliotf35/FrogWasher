@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\PlayerScripts\WaterBar.cs" />
     <Compile Include="Assets\Scripts\SceneSwapScripts\TutorialtoLvl1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\Dash.cs" />
     <Compile Include="Assets\Scripts\SceneSwapScripts\Lvl1Boss.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\LVL2scripts\frog2.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\LVL1Scripts\lvl1Boss\JumpBehavior.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Unity.VisualScripting.Generated\VisualScripting.Core\AotStubs.cs" />
     <Compile Include="Assets\Scripts\LVL2scripts\lvl2gamemanagement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />

@@ -17,6 +17,7 @@ public class PlayerKnockback : MonoBehaviour
     public AudioClip hitSound;
     public float externalForceX;
     private Rigidbody2D rb;
+    private PlayerDash playerDash;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerKnockback : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;  
+        playerDash = GetComponent<PlayerDash>();
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -74,6 +76,14 @@ public class PlayerKnockback : MonoBehaviour
         }
     }
 
+    bool CanBeKnockedBack(Collision2D collision)
+    {
+        // You can expand this method to include additional checks if necessary
+        return (collision.gameObject.GetComponent<Frog>() != null ||
+                collision.gameObject.GetComponent<Frog2>() != null ||
+                collision.gameObject.GetComponent<minion>() != null);
+    }
+
     public void AddExternalForceX(float force)
     {
         externalForceX = force;
@@ -82,6 +92,7 @@ public class PlayerKnockback : MonoBehaviour
     public void ReduceHealth(int damage)
     {
         if (!canBeKnockedBack) return;
+        if (playerDash.IsDashing) return; 
 
         currentHealth -= damage;
         healthDisplay.UpdateHealth(currentHealth);
@@ -123,13 +134,15 @@ public class PlayerKnockback : MonoBehaviour
 
     IEnumerator BlinkEffect(float duration)
     {
-        float endTime = Time.time + duration;
-        while (Time.time < endTime)
-        {
-            spriteRenderer.enabled = !spriteRenderer.enabled;
-            yield return new WaitForSeconds(.1f);
+        if (!playerDash.IsDashing){ 
+            float endTime = Time.time + duration;
+            while (Time.time < endTime)
+            {
+                spriteRenderer.enabled = !spriteRenderer.enabled;
+                yield return new WaitForSeconds(.1f);
+            }
+            spriteRenderer.enabled = true; 
         }
-        spriteRenderer.enabled = true; 
     }
 
 }

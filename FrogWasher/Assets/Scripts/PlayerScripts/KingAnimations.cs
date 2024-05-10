@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Animator animator;
     private BoxCollider2D boxCollider;
+    private PlayerDash playerDash;
     private float previousYPosition;
     private bool isOnPlatform;  // To track whether the player is on a platform
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();  // Get the BoxCollider2D component
         previousYPosition = boxCollider.bounds.center.y;  // Initialize with the y position of the collider
+        playerDash = GetComponent<PlayerDash>();
         isOnPlatform = false;
     }
 
@@ -27,18 +29,27 @@ public class PlayerController : MonoBehaviour
         bool isJumping = !isOnPlatform && currentYPosition > previousYPosition && Mathf.Abs(currentYPosition - previousYPosition) > 0.01f;
         bool isFalling = !isOnPlatform && currentYPosition < previousYPosition && Mathf.Abs(currentYPosition - previousYPosition) > 0.01f;
 
-        // Prioritize vertical movements over horizontal movement
-        if (isJumping || isFalling)
+        if (playerDash != null && playerDash.IsDashing) // Check if the dash script exists and the player is dashing
         {
-            animator.SetBool("IsRunning", false); // Override isMoving if jumping or falling
-            animator.SetBool("IsJumping", isJumping);
-            animator.SetBool("IsFalling", isFalling);
-        }
-        else
-        {
-            animator.SetBool("IsRunning", isMoving);
+            animator.SetBool("IsRunning", false);
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsFalling", false);
+        }
+        else{
+            // Prioritize vertical movements over horizontal movement
+            if (isJumping || isFalling)
+            {
+                animator.SetBool("IsRunning", false); // Override isMoving if jumping or falling
+                animator.SetBool("IsJumping", isJumping);
+                animator.SetBool("IsFalling", isFalling);
+            }
+
+            else
+            {
+                animator.SetBool("IsRunning", isMoving);
+                animator.SetBool("IsJumping", false);
+                animator.SetBool("IsFalling", false);
+            }
         }
 
         // Update previous position for the next frame
