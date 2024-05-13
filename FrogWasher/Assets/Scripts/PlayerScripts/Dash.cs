@@ -7,7 +7,7 @@ public class PlayerDash : MonoBehaviour
 {
     public float dashDistance = 5f;   // Distance to dash
     public float dashTime = 0.1f;     // Duration of the dash (primarily for animation)
-    public float dashCooldown = 5f;   // Cooldown duration in seconds
+    public float dashCooldown = 4f;   // Cooldown duration in seconds
     private float nextDashTime = 0f;  // When the next dash is allowed
 
     public Image dashCooldownImage;   // UI Image to show cooldown
@@ -19,6 +19,8 @@ public class PlayerDash : MonoBehaviour
     private BoxCollider2D collider; // Reference to the player's collider
 
     public bool IsDashing { get; private set; } // Publicly accessible IsDashing property
+    private AudioSource[] audioSources;
+    public AudioClip dashBackUpSound;
 
     void Start()
     {
@@ -26,6 +28,7 @@ public class PlayerDash : MonoBehaviour
         animator = GetComponent<Animator>();
         collider = GetComponent<BoxCollider2D>(); // Get the BoxCollider2D component
         defaultColor = dashCooldownImage.color; // Save the default color at start
+        audioSources = GetComponents<AudioSource>();
     }
 
     void Update()
@@ -80,5 +83,12 @@ public class PlayerDash : MonoBehaviour
             yield return null;
         }
         dashCooldownImage.color = defaultColor;  // Ensure it's set back to default after cooldown
+
+        // Play the dash back up sound effect
+        if (dashBackUpSound != null && audioSources.Length > 0)
+        {
+            AudioSource audioSource = audioSources[0]; // Use the first AudioSource or modify to select a specific one
+            audioSource.PlayOneShot(dashBackUpSound);
+        }
     }
 }

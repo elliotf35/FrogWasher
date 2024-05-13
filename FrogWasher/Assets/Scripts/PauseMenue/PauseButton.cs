@@ -14,6 +14,7 @@ public class PauseButton : MonoBehaviour
     }
 
     public void Home(){
+        CheckpointManager.ResetToDefaultCheckpoint();
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
         AudioListener.pause = false; 
@@ -26,6 +27,7 @@ public class PauseButton : MonoBehaviour
     }
 
     public void Restart(){
+        CheckpointManager.ResetToDefaultCheckpoint();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
         AudioListener.pause = false; 
